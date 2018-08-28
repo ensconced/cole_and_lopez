@@ -91,5 +91,16 @@ $(document).ready(function (){
         }
 	});
 
+
+    // footer copyright date range
+    function yearRange() {
+        var year = (new Date()).getFullYear();
+        if (year === 2018) {
+            return "2018"
+        } else {
+            return "2018 - " + year;
+        }
+    }
+    document.getElementById("yearRange").innerHTML = yearRange();
 });
 
