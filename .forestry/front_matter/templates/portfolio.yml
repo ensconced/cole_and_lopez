@@ -1,0 +1,30 @@
+---
+label: Portfolio
+hide_body: 
+is_partial: 
+fields:
+- name: title
+  label: Title
+  type: text
+  hidden: false
+  default: ''
+- name: bg
+  label: Bg
+  type: text
+  hidden: false
+  default: ''
+- name: color
+  label: Color
+  type: text
+  hidden: false
+  default: ''
+- name: hero-image
+  label: Hero image
+  type: text
+  hidden: false
+  default: ''
+- name: fa-icon
+  label: Fa icon
+  type: text
+  hidden: false
+  default: ''
