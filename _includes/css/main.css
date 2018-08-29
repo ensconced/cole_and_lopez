@@ -175,7 +175,7 @@ nav ul li:hover, nav ul li.active {
   display:block;
   width:100%;
   min-height:300px;
-  padding-bottom: 210px;
+  padding-bottom: 50px;
  /* background:url(img/bgnoise.png); */
   /* generated noise from noisetexturegenerator.com */
 }
@@ -194,7 +194,11 @@ nav ul li:hover, nav ul li.active {
 }
 
 .section:first-of-type {
-    padding-top: 165px;
+  height: 500px;
+}
+
+h1 {
+  line-height: 500px;
 }
 
 
