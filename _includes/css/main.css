@@ -19,7 +19,6 @@ html { box-sizing: border-box; }
   {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
   {% capture bg %}{% if site.colors[node.bg] %}{{ site.colors[node.bg] }}{% else %}{{ node.bg }}{% endif %}{% endcapture %}
   {% capture fg %}{% if site.colors[node.color] %}{{ site.colors[node.color] }}{% else %}{{ node.color }}{% endif %}{% endcapture %}
-  nav .p-{{id}} { border-color: {{ bg }}; }
   #{{id}} { background-color: {{ bg }} !important; color: {{ fg }}; }
   #{{id}} a { color: {{ fg }}; }
   #{{id}} .sectiondivider { color: {{ bg }}; }
@@ -121,7 +120,9 @@ nav {
   z-index:100;
   top:0;
   left:0;
-  background:#2e2e2e;
+  color: black;
+  background-color: white;
+  opacity: 0.95;
 }
 
 nav ul {
@@ -134,9 +135,9 @@ nav ul {
 
 nav ul li {
   display:inline-block;
-  border-top:{{navborder}}px solid;
+  border-top: {{navborder}}px solid #222;
   padding: {{navborder}}px;
-  *display:inline;
+  *display:inline; /* IE asterisk hack */
   zoom:1;
   line-height:normal;
   letter-spacing:normal;
@@ -148,7 +149,7 @@ nav ul li {
 
 nav ul li a, nav ul li a:visited {
   display:block;
-  color:#fff;
+  color: black;
   text-decoration:none;
   font-weight:600;
   opacity:.75;
@@ -166,17 +167,18 @@ nav ul li:hover, nav ul li.active {
 /* ----- sections/articles ----- */
 
 .section {
+  border: 5px solid blue;
   position:relative;
   display:block;
   width:100%;
   min-height:300px;
   padding:210px 0;
-  background:url(img/bgnoise.png);
+ /* background:url(img/bgnoise.png); */
   /* generated noise from noisetexturegenerator.com */
 }
 
 .section:first-of-type {
-    padding-top: 140px;
+    padding-top: 165px;
 }
 
 
