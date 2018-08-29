@@ -46,8 +46,12 @@
         </div>
         {% endif %}
         -->
-
-
+        {% if page.hero-image %}
+        <div class="hero">
+          <h2>{{ page.title }}</h2>  
+        </div>
+        {% endif %}
+        
         <div class="container {{ page.style }}">
           {{ page.content }}
         </div>
@@ -60,7 +64,6 @@
       </div>
     </div>
   </div>
-
 
 
 {% include analytics.html %}

@@ -14,14 +14,18 @@ html { box-sizing: border-box; }
 .bg-{{c[0]}}     { background-color: {{ c[1] }} !important; }
 {% endfor %}
 
-/* ----- per-post colors! ----- */
 {% for node in site.posts %}
   {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
+  
+  /* ----- per-post colors! ----- */
   {% capture bg %}{% if site.colors[node.bg] %}{{ site.colors[node.bg] }}{% else %}{{ node.bg }}{% endif %}{% endcapture %}
   {% capture fg %}{% if site.colors[node.color] %}{{ site.colors[node.color] }}{% else %}{{ node.color }}{% endif %}{% endcapture %}
   #{{id}} { background-color: {{ bg }} !important; color: {{ fg }}; }
   #{{id}} a { color: {{ fg }}; }
   #{{id}} .sectiondivider { color: {{ bg }}; }
+  /* hero-images  */
+  {% capture hero-image %}{{ node.hero-image | relative_url }}{% endcapture %}
+  #{{id}} .hero { background-image: url("{{ hero-image }}"); }
 {% endfor %}
 
 
@@ -167,14 +171,26 @@ nav ul li:hover, nav ul li.active {
 /* ----- sections/articles ----- */
 
 .section {
-  border: 5px solid blue;
   position:relative;
   display:block;
   width:100%;
   min-height:300px;
-  padding:210px 0;
+  padding-bottom: 210px;
  /* background:url(img/bgnoise.png); */
   /* generated noise from noisetexturegenerator.com */
+}
+
+.hero {
+  background-size: cover;
+  height: 500px;
+  text-align: center;
+}
+
+.hero h2 {
+  line-height: 500px;
+  color: #f8f8f8;
+  margin: 0 auto;
+  display: block;
 }
 
 .section:first-of-type {
