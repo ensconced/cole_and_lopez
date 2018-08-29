@@ -25,6 +25,16 @@ fields:
 - type: file
   label: hero image
   name: hero-image
+- type: number
+  name: index
+  label: Index
+  description: This determines the order in which the different sections appear on
+    the main page. (Pages with bigger index will appear below pages with smaller index).
+  config:
+    min: '1'
+    max: '99994'
+    step: '1'
+    required: true
 pages:
 - _posts/2018-08-29-portfolio.md
 - _posts/2018-08-29-about-us.md
