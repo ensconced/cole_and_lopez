@@ -4,6 +4,7 @@ bg: white
 color: black
 date: 2018-08-29 13:44:44 +0000
 hero-image: "/img/welder.jpg"
+index: 3
 
 ---
 Et latus non violentaque victoris iovis, sunt peremit, gladium adlevat per
