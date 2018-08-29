@@ -1,30 +1,29 @@
 ---
-label: Portfolio
-hide_body: 
-is_partial: 
+label: Section on Front Page
+hide_body: false
+is_partial: false
 fields:
 - name: title
   label: Title
   type: text
   hidden: false
   default: ''
+  config:
+    required: false
 - name: bg
   label: Bg
   type: text
-  hidden: false
-  default: ''
+  hidden: true
+  default: white
 - name: color
   label: Color
   type: text
-  hidden: false
-  default: ''
+  hidden: true
+  default: black
+  config:
+    required: false
 - name: hero-image
   label: Hero image
-  type: text
-  hidden: false
-  default: ''
-- name: fa-icon
-  label: Fa icon
   type: text
   hidden: false
   default: ''
