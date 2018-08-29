@@ -16,16 +16,17 @@
 </head>
 <body>
   <div id="main">
-
+    {% assign sortedPosts = site.posts | sort: 'index' %}
     <nav><ul>
-      {% for node in site.posts reversed %}
+
+      {% for node in sortedPosts %}
         {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
         <li class="p-{{id}}"><a href="#{{id}}">{{node.title}}</a></li>
       {% endfor %}
     </ul></nav>
 
 
-    {% for page in site.posts reversed %}
+    {% for page in sortedPosts %}
       {% capture id %}{{ page.id | remove:'/' | downcase }}{% endcapture %}
       <div id="{{id}}" class="section p-{{id}}">
         
