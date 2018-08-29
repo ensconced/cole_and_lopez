@@ -28,6 +28,9 @@
     {% for page in site.posts reversed %}
       {% capture id %}{{ page.id | remove:'/' | downcase }}{% endcapture %}
       <div id="{{id}}" class="section p-{{id}}">
+        
+
+        <!--
         {% if page.icon %}
         <div class="subtlecircle sectiondivider imaged">
           <img src="{{page.icon}}" alt="section icon" />
@@ -42,6 +45,9 @@
           <h5 class="icon-title">{{ page.title }}</h5>
         </div>
         {% endif %}
+        -->
+
+
         <div class="container {{ page.style }}">
           {{ page.content }}
         </div>
