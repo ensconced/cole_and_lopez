@@ -26,6 +26,6 @@ fields:
   label: hero image
   name: hero-image
 pages:
-- _posts/portfolio.md
+- _posts/2018-08-29-portfolio.md
 - _posts/2018-08-29-about-us.md
 - _posts/2018-08-29-contact.md
