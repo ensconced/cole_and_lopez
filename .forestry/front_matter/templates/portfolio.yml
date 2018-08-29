@@ -22,8 +22,6 @@ fields:
   default: black
   config:
     required: false
-- name: hero-image
-  label: Hero image
-  type: text
-  hidden: false
-  default: ''
+- type: file
+  label: hero image
+  name: hero-image
