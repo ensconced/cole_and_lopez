@@ -1,11 +1,12 @@
 ---
-title: "Portfolio"
+title: Portfolio
 bg: white
 color: black
-fa-icon: toggle-on
-hero-image: img/welder.jpg
----
+date: 2018-08-29 13:44:44 +0000
+hero-image: "/img/welder.jpg"
+index: 3
 
+---
 Et latus non violentaque victoris iovis, sunt peremit, gladium adlevat per
 felicia luctor? Maternaque puerum, [ecce](http://quaefuit.org/) formam, facilem
 percussis, ultima, meque, Exadius Olympus. Plusque huic hausitque **mediam**
