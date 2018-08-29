@@ -25,3 +25,5 @@ fields:
 - type: file
   label: hero image
   name: hero-image
+pages:
+- _posts/test.md
