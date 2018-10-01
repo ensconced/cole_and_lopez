@@ -30,7 +30,8 @@
       {% capture id %}{{ page.id | remove:'/' | downcase }}{% endcapture %}
       <div id="{{id}}" class="section p-{{id}}">
         {% if page.hero-image %}
-        <div class="hero">
+        <div data-jarallax data-speed="0.5" class="hero jarallax">
+    	  	<img class="jarallax-img" src="{{ page.hero-image }}" alt="">
           <h2>{{ page.title }}</h2>
         </div>
         {% endif %}
@@ -53,4 +54,6 @@
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="site.js"></script>
+<!-- Jarallax -->
+<script src="https://unpkg.com/jarallax@1.10/dist/jarallax.min.js"></script>
 </html>

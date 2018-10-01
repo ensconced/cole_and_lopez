@@ -16,16 +16,13 @@ html { box-sizing: border-box; }
 
 {% for node in site.posts %}
   {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
-  
+
   /* ----- per-post colors! ----- */
   {% capture bg %}{% if site.colors[node.bg] %}{{ site.colors[node.bg] }}{% else %}{{ node.bg }}{% endif %}{% endcapture %}
   {% capture fg %}{% if site.colors[node.color] %}{{ site.colors[node.color] }}{% else %}{{ node.color }}{% endif %}{% endcapture %}
   #{{id}} { background-color: {{ bg }} !important; color: {{ fg }}; }
   #{{id}} a { color: {{ fg }}; }
   #{{id}} .sectiondivider { color: {{ bg }}; }
-  /* hero-images  */
-  {% capture hero-image %}{{ node.hero-image | relative_url }}{% endcapture %}
-  #{{id}} .hero { background-image: url("{{ hero-image }}"); }
 {% endfor %}
 
 
