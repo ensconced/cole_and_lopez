@@ -36,6 +36,6 @@ fields:
     step: '1'
     required: true
 pages:
-- _posts/2018-08-29-contact.md
-- _posts/2018-08-29-portfolio.md
 - _posts/2018-08-29-about-us.md
+- _posts/2018-08-29-portfolio.md
+- _posts/2018-08-29-contact.md
