@@ -179,7 +179,6 @@ footer p {
 	}
 
 	nav {
-		height: 300px;
 		padding: 5px;
 	}
 
@@ -190,15 +189,6 @@ footer p {
 
 	#svg-wrapper {
 		padding: 5px 5px 20px 5px;
-	}
-
-	nav.stuck {
-		position: fixed;
-		top: -240px;
-	}
-
-	nav.stuck ~ #main, nav.stuck ~ footer {
-		top: 300px;
 	}
 
 	.jarallax {
@@ -221,6 +211,7 @@ footer p {
 	}
 
 	nav {
+		height: 300px;
 		padding: 10px;
 	}
 }
@@ -254,15 +245,6 @@ footer p {
 
 	svg {
 		height: 60%;
-	}
-
-	nav.stuck {
-		position: fixed;
-		top: -120px;
-	}
-
-	nav.stuck ~ #main, nav.stuck ~ footer {
-		top: 180px;
 	}
 
 	.jarallax {
