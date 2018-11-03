@@ -2,6 +2,8 @@ var stuck;
 var nav = document.querySelector('nav');
 var svgWrapper = nav.querySelector('#svg-wrapper');
 var svg = svgWrapper.querySelector('svg');
+var main = document.getElementById('main');
+var footer = document.querySelector('footer');
 var limit;
 
 // Cross browser compatible, non-overriding window.onload function
@@ -15,7 +17,8 @@ window.onresize = init;
 
 // Initialize the page
 function init() {
-  limit = scrollLimit(windowWidth());
+  limit = scrollLimit(windowDimensions());
+  console.log(limit);
   // Fade in the body
   document.body.classList.add('js-has-loaded');
   // Otherwise check if page is already scrolled
@@ -55,33 +58,54 @@ function shrinkLogo() {
     if (stuck) {
     // then we have just scrolled out of "stuck" region
       nav.classList.remove('stuck');
+    nav.style.top = '0';
       svg.setAttribute("viewBox", "0 0 435 212.5");
+      main.style.top = '0';
+      footer.style.bottom = '0';
     }
     stuck = false;
   } else {
     // if in stuck region...and have just scrolled into it
     svgWrapper.style.top = String(limit) + 'px';
     nav.classList.add('stuck');
-    console.log("enlarging viewbox...");
+    nav.style.top = '-' + String(limit) + 'px';
+    main.style.top = String(initHeight(...windowDimensions())) + 'px';
+    footer.style.bottom = '-' + String(initHeight(...windowDimensions())) + 'px';
     svg.setAttribute("viewBox", "-400 0 1260 212.5");
     stuck = true;
   }
 }
 
-function windowWidth() {
+function windowDimensions() {
   var w = window;
   var d = document;
   var e = d.documentElement;
   var g = d.getElementsByTagName('body')[0];
-  return w.innerWidth || e.clientWidth || g.clientWidth;
+  var y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+  var x = w.innerWidth || e.clientWidth || g.clientWidth;
+  return [x, y];
 }
 
-function scrollLimit(windowWidth) {
-  if (windowWidth <= 250) {
-    return 120;
-  } else if (windowWidth <= 400) {
-    return 240;
+function scrollLimit(windowDimensions) {
+  var width = windowDimensions[0];
+  var height = windowDimensions[1];
+  var collapsedHeight;
+  if (width <= 250) {
+    collapsedHeight = 60;
+  } else if (width <= 300) {
+    collapsedHeight = 60;
   } else {
-    return 400;
+    collapsedHeight = 100;
+  }
+  return initHeight(width, height) - collapsedHeight;
+}
+
+function initHeight(width, height) {
+   if (width <= 250) {
+    return Math.min(180, height);
+  } else if (width <= 300) {
+    return Math.min(300, height);
+  } else {
+    return Math.min(500, height);
   }
 }
