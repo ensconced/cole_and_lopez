@@ -93,7 +93,7 @@ function scrollLimit(windowDimensions) {
   var width = windowDimensions[0];
   var height = windowDimensions[1];
   var collapsedHeight;
-  if (width <= 250) {
+  if (width <= 250 || height <= 500) {
     collapsedHeight = 60;
   } else if (width <= 300) {
     collapsedHeight = 60;
