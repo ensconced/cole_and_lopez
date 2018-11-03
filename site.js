@@ -14,6 +14,9 @@ if (window.addEventListener) {
 }
 
 window.onresize = init;
+window.addEventListener("orientationchange", function() {
+    init();
+});
 
 // Initialize the page
 function init() {
