@@ -1,7 +1,8 @@
 ---
 ---
 <!DOCTYPE html>
-<html dir="ltr" lang="en"><head>
+<html dir="ltr" lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="{{ site.keywords }}">
@@ -9,10 +10,12 @@
   <title>Cole &amp; Lopez</title>
   <link rel="stylesheet" href="main.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet" type="text/css">
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
   <nav>
     <div id="svg-wrapper">
+    <div id="flash-message" class="hidden">Form submitted successfully. We'll be in touch!</div>
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    viewBox="0 0 435 212.5" xml:space="preserve">
 <style type="text/css">
@@ -958,21 +961,26 @@
                 <p>Cole and Lopez Ltd</p><p>Unit 17 Gemini Project</p><p>Landmann Way</p><p>London</p><p>SE14 5RL</p>
               </td>
             </tr>
-
-            <tr>
-              <th>Email:</th>
-              <td id="email-address">
-                <span>info&#64;cole<span style="display: none">obfuscationstring</span>andlopez&#46;com</span>
-              </td>
-            </tr>
           </tbody>
         </table>
+        <form id="form">
+          <label for="email">Your email address:</label>
+          <input required id="email" type="email" name="email" />
+          <label for="subject">Subject:</label>
+          <input required id="subject" name="subject" type="text" autocomplete="nope" />
+          <label for="message">Message:</label>
+          <textarea required id="message" name="message"></textarea>
+          <div id="recaptcha-wrapper-wrapper"></div>
+          <img id="form-spinner" src="./img/tail-spin.svg" />
+          <button id="form-button" type="submit">Send Email</button>
+        </form>
       </section>
   </div>
 
   <footer>
       <p>&copy; Cole &amp; Lopez <span id="yearRange">2018</span></p>
   </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- lazy image loading-->
 <script src="lazysizes.min.js"></script>
 <!-- Jarallax -->

@@ -20,6 +20,7 @@ window.addEventListener("orientationchange", function() {
 
 // Initialize the page
 function init() {
+  setUpForm();
   limit = scrollLimit(windowDimensions());
   console.log(limit);
   // Fade in the body
@@ -111,4 +112,71 @@ function initHeight(width, height) {
   } else {
     return Math.min(500, height);
   }
+}
+
+function setUpForm() {
+  var contactFormHost = 'https://cole-and-lopez-form-backend.herokuapp.com/';
+  var jqueryForm = $('form');
+  var form = document.querySelector('form');
+  var spinner = document.getElementById('form-spinner');
+  var button = document.getElementById('form-button');
+  var recaptchaWrapperWrapper = document.getElementById('recaptcha-wrapper-wrapper');
+  if (recaptchaWrapperWrapper.children.length > 0) {
+    recaptchaWrapperWrapper.children[0].remove();
+  }
+  var recaptchaWrapper = document.createElement('div');
+  recaptchaWrapper.id = 'recaptcha-wrapper';
+  recaptchaWrapperWrapper.appendChild(recaptchaWrapper);
+  grecaptcha.render(recaptchaWrapper, {
+    sitekey: '6LedD3oUAAAAAF247FcyBJzlJ7PFsvh5IzYVR2mW',
+    size: windowDimensions()[0] < 300 ? 'compact' : 'normal',
+  });
+
+  jqueryForm.submit(function(ev) {
+    ev.preventDefault();
+    var recaptchaToken = $("#g-recaptcha-response").val();
+    if (recaptchaToken === "") {
+      flashFailure("Please confirm that you are not a robot");
+    } else {
+      button.style.display = 'none';
+      spinner.style.display = 'block';
+      $.ajax({
+        type: 'POST',
+        url: contactFormHost + 'send_email',
+        data: jqueryForm.serialize(),
+        dataType: 'json',
+        success: function (response) {
+          button.style.display = 'block';
+          spinner.style.display = 'none';
+          switch (response.message) {
+            case 'success':
+              form.reset();
+              grecaptcha.reset();
+              flashSuccess();
+              break;
+            case 'failure_email':
+              flashFailure('Form failed to submit...Please try again.');
+          }
+        },
+      });
+    }
+  });
+}
+
+function flashSuccess() {
+  var flash = document.getElementById('flash-message');
+  flash.innerHTML = 'Form submitted successfully. We\'ll be in touch!';
+  flash.classList.add('success');
+  flash.classList.remove('failure');
+  flash.classList.remove('hidden');
+  setTimeout(function () { flash.classList.add('hidden'); }, 3000);
+}
+
+function flashFailure(message) {
+  var flash = document.getElementById('flash-message');
+  flash.innerHTML = message;
+  flash.classList.add('failure');
+  flash.classList.remove('success');
+  flash.classList.remove('hidden');
+  setTimeout(function () { flash.classList.add('hidden'); }, 3000);
 }
