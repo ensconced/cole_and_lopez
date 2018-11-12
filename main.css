@@ -287,6 +287,10 @@ form img#wait-for-recaptcha {
 	transition: opacity 0.5s ease;
 }
 
+#flash-message p {
+	flex: 1;
+}
+
 #flash-message.hidden {
 	opacity: 0;
 }
