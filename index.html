@@ -15,7 +15,7 @@
 <body>
   <nav>
     <div id="svg-wrapper">
-    <div id="flash-message" class="hidden">Form submitted successfully. We'll be in touch!</div>
+    <div id="flash-message" class="hidden"><p></p></div>
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    viewBox="0 0 435 212.5" xml:space="preserve">
 <style type="text/css">
@@ -970,7 +970,9 @@
           <input required id="subject" name="subject" type="text" autocomplete="nope" />
           <label for="message">Message:</label>
           <textarea required id="message" name="message"></textarea>
-          <div id="recaptcha-wrapper-wrapper"></div>
+          <div id="recaptcha-wrapper-wrapper">
+            <img id="wait-for-recaptcha" src="./img/tail-spin.svg">
+          </div>
           <img id="form-spinner" src="./img/tail-spin.svg" />
           <button id="form-button" type="submit">Send Email</button>
         </form>

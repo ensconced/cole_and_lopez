@@ -125,8 +125,8 @@
     var spinner = document.getElementById('form-spinner');
     var button = document.getElementById('form-button');
     var recaptchaWrapperWrapper = document.getElementById('recaptcha-wrapper-wrapper');
-    if (recaptchaWrapperWrapper.children.length > 0) {
-      recaptchaWrapperWrapper.children[0].remove();
+    if (recaptchaWrapperWrapper.children.length > 1) {
+      recaptchaWrapperWrapper.children[1].remove();
     }
     var recaptchaWrapper = document.createElement('div');
     recaptchaWrapper.id = 'recaptcha-wrapper';
@@ -139,7 +139,7 @@
     jqueryForm.submit(function(ev) {
       ev.preventDefault();
       var recaptchaToken = $("#g-recaptcha-response").val();
-      if (recaptchaToken === "") {
+      if (!recaptchaToken) {
         flashFailure("Please confirm that you are not a robot");
       } else {
         button.style.display = 'none';
@@ -169,7 +169,8 @@
 
   function flashSuccess() {
     var flash = document.getElementById('flash-message');
-    flash.innerHTML = 'Form submitted successfully. We\'ll be in touch!';
+    var flashParagraph = flash.querySelector('p');
+    flashParagraph.innerHTML = 'Form submitted successfully.';
     flash.classList.add('success');
     flash.classList.remove('failure');
     flash.classList.remove('hidden');
@@ -178,7 +179,8 @@
 
   function flashFailure(message) {
     var flash = document.getElementById('flash-message');
-    flash.innerHTML = message;
+    var flashParagraph = flash.querySelector('p');
+    flashParagraph.innerHTML = message;
     flash.classList.add('failure');
     flash.classList.remove('success');
     flash.classList.remove('hidden');

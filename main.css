@@ -214,10 +214,28 @@ form button, form #form-spinner {
 	margin: 0 auto;
 }
 
+form #recaptcha-wrapper-wrapper {
+	min-height: 118px;
+  overflow: auto;
+  position: relative;
+  text-align: center;
+}
+
 form #recaptcha-wrapper {
 	  display: flex;
     justify-content: center;
   	margin: 20px 0;
+}
+
+form img#wait-for-recaptcha {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    display: inline;
+    top: 59px;
+    margin-top: -25px;
+    margin-left: -25px;
+    z-index: -1;
 }
 
 @media screen and (max-width: 400px) {
@@ -256,6 +274,8 @@ form #recaptcha-wrapper {
 }
 
 #flash-message {
+	display: flex;
+  align-items: center;
 	line-height: 100px;
 	color: #222;
 	height: 100px;
