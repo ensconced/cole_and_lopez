@@ -19,13 +19,20 @@
     window.attachEvent && window.attachEvent('onload', init);
   }
 
-  window.onresize = throttled(init, 500);
+  window.onresize = function () {
+   // don't let keyboard trigger resize on mobile browsers
+   if($(document.activeElement).prop('type') === 'text') {
+     throttled(init, 500)();
+   }
+  };
+
   window.addEventListener("orientationchange", function() {
       init();
   });
 
   // Initialize the page
   function init() {
+    debugger;
     setUpForm();
     limit = scrollLimit(windowDimensions());
     console.log(limit);
