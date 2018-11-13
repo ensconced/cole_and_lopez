@@ -10,6 +10,8 @@
   var wait;
   var stagedCallback;
 
+  var formTimeout;
+
   // Cross browser compatible, non-overriding window.onload function
   if (window.addEventListener) {
     window.addEventListener('load', init, false);
@@ -138,10 +140,15 @@
 
     jqueryForm.submit(function(ev) {
       ev.preventDefault();
-      var recaptchaToken = $("#g-recaptcha-response").val();
+      var recaptchaToken = grecaptcha.getResponse();
       if (!recaptchaToken) {
         flashFailure("Please confirm that you are not a robot");
       } else {
+        formTimeout = setTimeout(function () {
+          button.style.display = 'block';
+          spinner.style.display = 'none';
+          flashFailure('Form failed to submit...Please try again.');
+        }, 10000);
         button.style.display = 'none';
         spinner.style.display = 'block';
         $.ajax({
@@ -168,6 +175,7 @@
   }
 
   function flashSuccess() {
+    formTimeout && clearTimeout(formTimeout);
     var flash = document.getElementById('flash-message');
     var flashParagraph = flash.querySelector('p');
     flashParagraph.innerHTML = 'Form submitted successfully.';
@@ -178,6 +186,7 @@
   }
 
   function flashFailure(message) {
+    formTimeout && clearTimeout(formTimeout);
     var flash = document.getElementById('flash-message');
     var flashParagraph = flash.querySelector('p');
     flashParagraph.innerHTML = message;
