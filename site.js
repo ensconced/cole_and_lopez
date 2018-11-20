@@ -21,13 +21,10 @@
   }
 
   window.onresize = throttled(function () {
-    console.log('resize');
     if (!isMobile) {
       resizeHandler();
     } else {
-      scrollTo();
-      // scroll to active element
-
+      setTimeout(scrollTo, 1000);
     }
   }, 500);
 
@@ -43,9 +40,11 @@
       shrinkLogo();
     };
     if (isMobile) {
+      /*
       ['#email', '#subject', '#message'].forEach(function (input) {
-        $(input).on('focus', scrollTo);
+        $(input).on('click', scrollTo);
       });
+      */
 
       document.ontouchstart = function (ev) {
         if (!['INPUT', 'TEXTAREA', 'LABEL'].includes(ev.target.tagName)) {
@@ -78,7 +77,7 @@
       if (stuck) {
       // then we have just scrolled out of "stuck" region
         nav.classList.remove('stuck');
-      nav.style.top = '0';
+        nav.style.top = '0';
         svg.setAttribute("viewBox", "0 0 435 212.5");
         main.style.top = '0';
         footer.style.bottom = '0';
@@ -235,11 +234,9 @@
 
 
   function scrollTo() {
-    nav.style.display = 'none';
-    setTimeout(function () {
-      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-        document.documentElement.scrollTop += document.activeElement.parentElement.getBoundingClientRect().top;
-      }
-    }, 500);
+    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+      nav.style.display = 'none';
+      document.documentElement.scrollTop += document.activeElement.parentElement.getBoundingClientRect().top;
+    }
   }
 }());
