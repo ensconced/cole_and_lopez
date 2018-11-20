@@ -1,5 +1,4 @@
 (function () {
-
   var stuck;
   var nav = document.querySelector('nav');
   var svgWrapper = nav.querySelector('#svg-wrapper');
@@ -44,8 +43,12 @@
       shrinkLogo();
     };
     if (isMobile) {
+      ['#email', '#subject', '#message'].forEach(function (input) {
+        $(input).on('focus', scrollTo);
+      });
+
       document.ontouchstart = function (ev) {
-        if (!['INPUT', 'TEXTAREA'].includes(ev.target.tagName)) {
+        if (!['INPUT', 'TEXTAREA', 'LABEL'].includes(ev.target.tagName)) {
           nav.style.display = 'block';
         }
       };
@@ -181,31 +184,6 @@
     });
   }
 
-  function handleTextArea() {
-    var textarea = document.querySelector('#form textarea#message');
-    var recaptchaWrapperWrapper = document.getElementById('recaptcha-wrapper-wrapper');
-    var formSpinner = document.getElementById('form-spinner');
-    var formButton = document.getElementById('form-button');
-    var footer = document.getElementById('footer');
-    var initialDisplayStyles = {
-      'recaptcha-wrapper-wrapper': recaptchaWrapperWrapper.style.display,
-      'form-spinner': formSpinner.style.display,
-      'form-button': formButton.style.display,
-      'footer': footer.style.display,
-    };
-    textarea.onfocus = function () {
-      [recaptchaWrapperWrapper, formSpinner, formButton, footer].forEach(function (element) {
-        element.style.display = 'none';
-      });
-    };
-
-    textarea.onblur = function() {
-      ['recaptcha-wrapper-wrapper', 'form-spinner', 'form-button', 'footer'].forEach(function (id) {
-        document.getElementById(id).style.display = initialDisplayStyles[id];
-      });
-    };
-  }
-
   function flashSuccess() {
     formTimeout && clearTimeout(formTimeout);
     var flash = document.getElementById('flash-message');
@@ -255,14 +233,12 @@
     return check;
   };
 
-  ['#email', '#subject', '#message'].forEach(function (input) {
-    $(input).on('focus', scrollTo);
-  });
 
   function scrollTo() {
+    nav.style.display = 'none';
     setTimeout(function () {
       if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-        document.documentElement.scrollTop += document.activeElement.getBoundingClientRect().top - 45;
+        document.documentElement.scrollTop += document.activeElement.parentElement.getBoundingClientRect().top;
       }
     }, 500);
   }
