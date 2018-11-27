@@ -10,6 +10,7 @@
   var stagedCallback;
   var isMobile = checkIfMobile();
   var formTimeout;
+  var preventLogoShrink = false;
 
   // Cross browser compatible, non-overriding window.onload function
   if (window.addEventListener) {
@@ -23,8 +24,6 @@
   window.onresize = throttled(function () {
     if (!isMobile) {
       resizeHandler();
-    } else {
-      setTimeout(scrollTo, 1000);
     }
   }, 500);
 
@@ -35,21 +34,22 @@
   function init() {
     setUpForm();
     limit = scrollLimit(windowDimensions());
-    shrinkLogo();
-    window.onscroll = function() {
-      shrinkLogo();
-    };
     if (isMobile) {
-      /*
-      ['#email', '#subject', '#message'].forEach(function (input) {
-        $(input).on('click', scrollTo);
-      });
-      */
-
-      document.ontouchstart = function (ev) {
-        if (!['INPUT', 'TEXTAREA', 'LABEL'].includes(ev.target.tagName)) {
-          nav.style.display = 'block';
+      document.querySelector('body').style.top = '100px';
+      nav.style.maxHeight = '100px';
+      nav.style.position = 'fixed';
+      nav.classList.add('stuck');
+      svg.setAttribute("viewBox", "-400 0 1260 212.5");
+      document.onclick = function () {
+        if (!['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+          nav.style.position = 'fixed';
+          nav.style.top = '0';
         }
+      };
+    } else {
+      shrinkLogo();
+      window.onscroll = function() {
+        shrinkLogo();
       };
     }
   }
@@ -59,9 +59,7 @@
     shrinkLogo();
   }
 
-  // Check if the user has scrolled
   function isScrolled() {
-    // IE...
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     if (scrollTop > 0) {
       return true;
@@ -71,27 +69,30 @@
   }
 
   function shrinkLogo() {
-    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    if (scrollTop < limit) {
-      svgWrapper.style.top = String(scrollTop) + 'px';
-      if (stuck) {
-      // then we have just scrolled out of "stuck" region
-        nav.classList.remove('stuck');
-        nav.style.top = '0';
-        svg.setAttribute("viewBox", "0 0 435 212.5");
-        main.style.top = '0';
-        footer.style.bottom = '0';
+    if (!preventLogoShrink) {
+      console.log('shrinking logo...');
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop < limit) {
+        svgWrapper.style.top = String(scrollTop) + 'px';
+        if (stuck) {
+        // then we have just scrolled out of "stuck" region
+          nav.classList.remove('stuck');
+          nav.style.top = '0';
+          svg.setAttribute("viewBox", "0 0 435 212.5");
+          main.style.top = '0';
+          footer.style.bottom = '0';
+        }
+        stuck = false;
+      } else {
+        // if in stuck region...and have just scrolled into it
+        svgWrapper.style.top = String(limit) + 'px';
+        nav.classList.add('stuck');
+        nav.style.top = '-' + String(limit) + 'px';
+        main.style.top = String(initHeight(...windowDimensions())) + 'px';
+        footer.style.bottom = '-' + String(initHeight(...windowDimensions())) + 'px';
+        svg.setAttribute("viewBox", "-400 0 1260 212.5");
+        stuck = true;
       }
-      stuck = false;
-    } else {
-      // if in stuck region...and have just scrolled into it
-      svgWrapper.style.top = String(limit) + 'px';
-      nav.classList.add('stuck');
-      nav.style.top = '-' + String(limit) + 'px';
-      main.style.top = String(initHeight(...windowDimensions())) + 'px';
-      footer.style.bottom = '-' + String(initHeight(...windowDimensions())) + 'px';
-      svg.setAttribute("viewBox", "-400 0 1260 212.5");
-      stuck = true;
     }
   }
 
@@ -232,11 +233,54 @@
     return check;
   };
 
+  var form  = document.getElementsByTagName('form')[0];
 
-  function scrollTo() {
-    if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
-      nav.style.display = 'none';
-      document.documentElement.scrollTop += document.activeElement.parentElement.getBoundingClientRect().top;
+  ['email', 'subject', 'message'].forEach(function (fieldStr) {
+    var field = document.getElementById(fieldStr);
+    var error = document.getElementById(fieldStr + '-error');
+
+    if (isMobile) {
+      field.onfocus = function () {
+        nav.style.position = 'absolute';
+        nav.style.top = '-100px';
+      }
     }
+
+    field.addEventListener("input", function (event) {
+      if (field.validity.valid && field.value) {
+        error.innerHTML = "";
+        error.className = "error";
+      } else {
+        error.innerHTML = 'please enter a valid ' + fieldStr;
+        error.className = "error active";
+      }
+    }, false);
+  });
+
+
+
+  form.addEventListener("submit", function (event) {
+    var fields = [].slice.call(form.querySelectorAll('#form .standard-input')).reverse();
+    var errors = [].slice.call(form.querySelectorAll('#form .error')).reverse();
+    fields.forEach(function (field, idx) {
+      if (!field.validity.valid || !field.value) {
+        errors[idx].innerHTML = "please enter a valid " + field.id;
+        errors[idx].className = "error active";
+        field.focus();
+        event.preventDefault();
+      }
+    });
+  }, false);
+
+  function tempScrollEventDisable (event) {
+    console.log('disabling scroll events');
+    preventLogoShrink = true;
+    setTimeout(function () {
+      preventLogoShrink = false;
+    }, 2000);
   }
 })();
+
+jarallax(document.querySelectorAll('.jarallax'), {
+    disableParallax: /iPad|iPhone|iPod|Android/,
+});

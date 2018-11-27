@@ -963,16 +963,19 @@
             </tr>
           </tbody>
         </table>
-        <form id="form">
+        <form id="form" novalidate>
           <label for="email">Your email address:
-            <input required id="email" type="email" name="email" />
           </label>
+            <input id="email" class="standard-input" type="email" name="email" />
+            <span id="email-error" class="error" aria-live="polite"></span>
           <label for="subject">Subject:
-            <input required id="subject" name="subject" type="text" autocomplete="nope" />
           </label>
+            <input id="subject" class="standard-input" name="subject" type="text" autocomplete="nope" />
+            <span id="subject-error" class="error" aria-live="polite"></span>
           <label for="message">Message:
-            <textarea required id="message" name="message"></textarea>
           </label>
+            <textarea id="message" class="standard-input" name="message"></textarea>
+            <span id="message-error" class="error" aria-live="polite"></span>
           <div id="recaptcha-wrapper-wrapper">
             <img id="wait-for-recaptcha" src="./img/tail-spin.svg">
           </div>
