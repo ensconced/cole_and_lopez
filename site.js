@@ -239,4 +239,4 @@
       document.documentElement.scrollTop += document.activeElement.parentElement.getBoundingClientRect().top;
     }
   }
-}());
+})();
