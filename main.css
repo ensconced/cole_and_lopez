@@ -172,14 +172,14 @@ footer p {
     z-index: -1;
 }
 
-form label {
+form {
 	padding: 0;
 }
 
 form input, form textarea, form button {
 	display: block;
 	font-size: inherit;
-	margin: 5px 0;
+	margin: 5px 0 20px 0;
 	border-radius: 8px;
 	background-color: #eee;
 }
@@ -192,7 +192,8 @@ form #email, form #subject, form button {
 
 /* This is the style of our error messages */
 .error {
-	margin-bottom: 10px;
+	position: relative;
+	bottom: 15px;
 	display: none;
   max-width  : 300px;
   padding: 0;
@@ -212,6 +213,7 @@ form #email, form #subject, form button {
 }
 
 .error#recaptcha-error {
+	bottom: 5px;
 	margin: -10px auto 10px auto;
   text-align: center;
 }
@@ -231,16 +233,28 @@ form button, form img {
 	max-width: 200px;
 }
 
-form img {
-	display: none;
-}
-
 form button:hover {
 	cursor: pointer;
 }
 
+form button.pending {
+  position: relative;
+  padding-right: 2rem;
+  max-width: 220px;
+}
+
 form button, form #form-spinner {
 	margin: 0 auto;
+}
+
+form #form-spinner {
+	position: absolute;
+	right: 5px;
+	height: 1.4rem;
+}
+
+form #form-spinner .spinner-circle {
+	fill: red;
 }
 
 form #recaptcha-wrapper-wrapper {

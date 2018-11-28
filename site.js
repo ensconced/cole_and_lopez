@@ -6,6 +6,8 @@
   var svg = svgWrapper.querySelector('svg');
   var main = document.getElementById('main');
   var footer = document.querySelector('footer');
+  var spinner = document.getElementById('form-spinner');
+  var button = document.getElementById('form-button');
   var fields = [].slice.call(form.querySelectorAll('#form .standard-input'));
   var errors = [].slice.call(form.querySelectorAll('#form .error'));
   var limit;
@@ -59,7 +61,6 @@
   }
   function shrinkLogo() {
     if (!preventLogoShrink) {
-      console.log('shrinking logo...');
       var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       if (scrollTop < limit) {
         svgWrapper.style.top = String(scrollTop) + 'px';
@@ -128,56 +129,75 @@
     });
 
     setUpRecaptcha();
+    setUpFormSubmission();
+  }
+
+  function setUpFormSubmission() {
+    function handleFormSubmission(ev) {
+      function showPendingButton() {
+        button.disabled = true;
+        button.className = "pending";
+        button.innerHTML = 'Sending message...';
+        var spinner = document.createElement('img');
+        spinner.setAttribute('id', 'form-spinner');
+        spinner.setAttribute('src', './img/tail-spin-dark.svg');
+        button.appendChild(spinner);
+      }
+      function showNormalButton() {
+        var spinner = button.querySelector('img');
+        button.removeChild(spinner);
+        button.disabled = false;
+        button.className = "";
+        button.innerHTML = 'Send message';
+      }
+
+      ev.preventDefault();
+
+      for (var i = 0; i < fields.length; i++) {
+        field = fields[i];
+        if (!field.validity.valid || !field.value) {
+          errors[i].innerHTML = "please enter a valid " + field.id;
+          errors[i].className = "error active";
+          field.focus();
+          return;
+        }
+      }
+      var recaptchaToken = grecaptcha.getResponse();
+      if (!recaptchaToken) {
+        var recaptchaError = document.getElementById('recaptcha-error');
+        recaptchaError.innerHTML = "please confirm that you are not a robot";
+        recaptchaError.className = "error active";
+      } else {
+        formTimeout = setTimeout(function () {
+          button.style.display = 'block';
+          spinner.style.display = 'none';
+          flashFailure();
+        }, 10000);
+        showPendingButton();
+        $.ajax({
+          type: 'POST',
+          url: 'https://cole-and-lopez-form-backend.herokuapp.com/send_email',
+          data: jqueryForm.serialize(),
+          dataType: 'json',
+          success: function (response) {
+            showNormalButton();
+            switch (response.message) {
+              case 'success':
+                form.reset();
+                grecaptcha.reset();
+                flashSuccess();
+                break;
+              case 'failure_email':
+                flashFailure();
+            }
+          },
+        });
+      }
+    }
     var jqueryForm = $('form');
     jqueryForm.submit(handleFormSubmission);
   }
 
-  function handleFormSubmission(ev) {
-    ev.preventDefault();
-
-    for (var i = 0; i < fields.length; i++) {
-      field = fields[i];
-      if (!field.validity.valid || !field.value) {
-        errors[i].innerHTML = "please enter a valid " + field.id;
-        errors[i].className = "error active";
-        field.focus();
-        return;
-      }
-    }
-    var recaptchaToken = grecaptcha.getResponse();
-    if (!recaptchaToken) {
-      var recaptchaError = document.getElementById('recaptcha-error');
-      recaptchaError.innerHTML = "please confirm that you are not a robot";
-      recaptchaError.className = "error active";
-    } else {
-      formTimeout = setTimeout(function () {
-        button.style.display = 'block';
-        spinner.style.display = 'none';
-        flashFailure();
-      }, 10000);
-      button.style.display = 'none';
-      spinner.style.display = 'block';
-             $.ajax({
-        type: 'POST',
-        url: contactFormHost + 'send_email',
-        data: jqueryForm.serialize(),
-        dataType: 'json',
-        success: function (response) {
-          button.style.display = 'block';
-          spinner.style.display = 'none';
-          switch (response.message) {
-            case 'success':
-              form.reset();
-              grecaptcha.reset();
-              flashSuccess();
-              break;
-            case 'failure_email':
-              flashFailure();
-          }
-        },
-      });
-    }
-  }
 
   function flashSuccess() {
     formTimeout && clearTimeout(formTimeout);
@@ -244,9 +264,6 @@
   }
 
   function setUpRecaptcha() {
-    var contactFormHost = 'https://cole-and-lopez-form-backend.herokuapp.com/';
-    var spinner = document.getElementById('form-spinner');
-    var button = document.getElementById('form-button');
     var recaptchaWrapperWrapper = document.getElementById('recaptcha-wrapper-wrapper');
     if (recaptchaWrapperWrapper.children.length > 1) {
       recaptchaWrapperWrapper.children[1].remove();
