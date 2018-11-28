@@ -939,7 +939,7 @@
   </div>
   </nav>
   <div id="main">
-      <div data-jarallax data-speed="0.2" class="jarallax">
+      <div data-speed="0.2" class="jarallax">
           <img class="jarallax-img img-small lazyload" src="./img/lotus-small.jpg" data-src="./img/lotus.jpg">
           <h2>About Us</h2>
       </div>
@@ -948,7 +948,7 @@
         <p>Formed by Daniel Cole and Miguel Lopez. Together we have a diverse skill base and knowledge of creative techniques and processes that we bring to our work, and over the many years that we have worked in the film industry we have built up a close network of skilled and passionate colleagues and collaborators who work over a variety of disciplines. This gives us the scope to take on and successfully execute all manner of projects involving design, sculpting, modelmaking, electronics, graphics, special effects, mouldmaking, casting and fabrication in a wide range of materials.</p>
         <p>Contact us to discuss how we can make your project happen.</p>
       </section>
-      <div data-jarallax data-speed="0.2" class="jarallax">
+      <div data-speed="0.2" class="jarallax">
           <img class="jarallax-img img-small lazyload" src="./img/sky-small.jpg" data-src="./img/sky.jpg">
           <h2>Contact</h2>
       </div>
@@ -979,6 +979,7 @@
           <div id="recaptcha-wrapper-wrapper">
             <img id="wait-for-recaptcha" src="./img/tail-spin.svg">
           </div>
+          <span id="recaptcha-error" class="error" aria-live="polite"></span>
           <img id="form-spinner" src="./img/tail-spin.svg" />
           <button id="form-button" type="submit">Send Email</button>
         </form>
@@ -996,42 +997,3 @@
 <script src="site.js"></script>
 </body>
 </html>
-
-<!--
-
-<body>
-  <div id="main">
-    {% assign sortedPosts = site.posts | sort: 'index' %}
-    <nav><ul>
-
-      {% for node in sortedPosts %}
-        {% capture id %}{{ node.id | remove:'/' | downcase }}{% endcapture %}
-        <li class="p-{{id}}"><a href="#{{id}}">{{node.title}}</a></li>
-      {% endfor %}
-    </ul></nav>
-
-
-    {% for page in sortedPosts %}
-      {% capture id %}{{ page.id | remove:'/' | downcase }}{% endcapture %}
-      <div id="{{id}}" class="section p-{{id}}">
-        {% if page.hero-image %}
-        <div data-jarallax data-speed="0.5" class="hero jarallax">
-    	  	<img class="jarallax-img" src="./{{ page.hero-image }}" alt="">
-          <h2>{{ page.title }}</h2>
-        </div>
-        {% endif %}
-
-        <div class="container {{ page.style }}">
-          {{ page.content }}
-        </div>
-      </div>
-    {% endfor %}
-    <div id="footer" class="section text-white">
-      <div class="container">
-        {% capture foottext %} {% include footer.md %} {% endcapture %}
-        {{ foottext | markdownify }}
-      </div>
-    </div>
-  </div>
-
-  -->

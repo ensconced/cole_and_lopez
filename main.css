@@ -12,10 +12,12 @@ html, body {
 }
 
 body {
+	opacity: 0;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 18px;
 	color: #F8F8F8;
 	padding-bottom: 50px;
+	transition: opacity 0.3s ease;
 }
 
 #main {
@@ -191,7 +193,7 @@ form #email, form #subject, form button {
 /* This is the style of our error messages */
 .error {
 	margin-bottom: 10px;
-	display: block;
+	display: none;
   max-width  : 300px;
   padding: 0;
 
@@ -202,10 +204,16 @@ form #email, form #subject, form button {
 
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 0.3em;
 }
 
 .error.active {
-  padding: 0.3em;
+	display: block;
+}
+
+.error#recaptcha-error {
+	margin: -10px auto 10px auto;
+  text-align: center;
 }
 
 form textarea {
