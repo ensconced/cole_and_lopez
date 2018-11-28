@@ -15,7 +15,6 @@
   var stagedCallback;
   var isMobile = checkIfMobile();
   var formTimeout;
-  var preventLogoShrink = false;
 
   // Cross browser compatible, non-overriding window.onload function
   if (window.addEventListener) {
@@ -60,21 +59,21 @@
     shrinkLogo();
   }
   function shrinkLogo() {
-    if (!preventLogoShrink) {
-      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      if (scrollTop < limit) {
-        svgWrapper.style.top = String(scrollTop) + 'px';
-        if (stuck) {
-        // then we have just scrolled out of "stuck" region
-          nav.classList.remove('stuck');
-          nav.style.top = '0';
-          svg.setAttribute("viewBox", "0 0 435 212.5");
-          main.style.top = '0';
-          footer.style.bottom = '0';
-        }
-        stuck = false;
-      } else {
-        // if in stuck region...and have just scrolled into it
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    if (scrollTop < limit) {
+      svgWrapper.style.top = String(scrollTop) + 'px';
+      if (stuck) {
+      // then we have just scrolled out of "stuck" region
+        nav.classList.remove('stuck');
+        nav.style.top = '0';
+        svg.setAttribute("viewBox", "0 0 435 212.5");
+        main.style.top = '0';
+        footer.style.bottom = '0';
+      }
+      stuck = false;
+    } else {
+      if (!stuck) {
+        // have just scrolled into 'stuck' region
         svgWrapper.style.top = String(limit) + 'px';
         nav.classList.add('stuck');
         nav.style.top = '-' + String(limit) + 'px';

@@ -34,7 +34,7 @@ body {
 	bottom: 0;
 	right: 0;
 	left: 0;
-	transition: padding 0s ease;
+	transition: top 0.15s linear;
 }
 
 nav {
