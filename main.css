@@ -54,7 +54,7 @@ nav span {
 	width: 80%;
 }
 
-svg {
+#logo {
 	height: 100%;
 	max-width: 100%;
 }
@@ -66,7 +66,7 @@ nav.stuck {
 }
 
 nav.stuck #svg-wrapper {
-		padding: 10px 10px 10px 0;
+		padding: 10px;
 }
 
 nav.stuck span {
@@ -375,7 +375,7 @@ form img#wait-for-recaptcha {
 		bottom: 5px;
 	}
 
-	svg {
+	#logo {
 		height: 60%;
 	}
 
