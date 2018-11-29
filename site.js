@@ -10,9 +10,30 @@ function setUpForm() {
   var form  = document.getElementsByTagName('form')[0];
   var button = document.getElementById('form-button');
   var nav = document.querySelector('nav');
+  var spinner = document.getElementById('form-spinner');
   var fields = [].slice.call(form.querySelectorAll('#form .standard-input'));
   var errors = [].slice.call(form.querySelectorAll('#form .error'));
-
+  function flashSuccess() {
+    formTimeout && clearTimeout(formTimeout);
+    var flash = document.getElementById('flash-message');
+    var flashParagraph = flash.querySelector('p');
+    flashParagraph.innerHTML = 'Form submitted successfully.';
+    flash.classList.add('success');
+    flash.classList.remove('failure');
+    flash.classList.remove('hidden');
+    setTimeout(function () { flash.classList.add('hidden'); }, 3000);
+  }
+  function flashFailure() {
+    var message = 'Form failed to submit...Please try again.';
+    formTimeout && clearTimeout(formTimeout);
+    var flash = document.getElementById('flash-message');
+    var flashParagraph = flash.querySelector('p');
+    flashParagraph.innerHTML = message;
+    flash.classList.add('failure');
+    flash.classList.remove('success');
+    flash.classList.remove('hidden');
+    setTimeout(function () { flash.classList.add('hidden'); }, 3000);
+  }
   function windowDimensions() {
     var w = window;
     var d = document;
@@ -136,7 +157,6 @@ function setUpForm() {
 
 (function () {
   var nav = document.querySelector('nav');
-  var spinner = document.getElementById('form-spinner');
   var formTimeout;
 
   $(document).ready(init);
@@ -156,26 +176,5 @@ function setUpForm() {
         nav.style.top = '0';
       }
     };
-  }
-  function flashSuccess() {
-    formTimeout && clearTimeout(formTimeout);
-    var flash = document.getElementById('flash-message');
-    var flashParagraph = flash.querySelector('p');
-    flashParagraph.innerHTML = 'Form submitted successfully.';
-    flash.classList.add('success');
-    flash.classList.remove('failure');
-    flash.classList.remove('hidden');
-    setTimeout(function () { flash.classList.add('hidden'); }, 3000);
-  }
-  function flashFailure() {
-    var message = 'Form failed to submit...Please try again.';
-    formTimeout && clearTimeout(formTimeout);
-    var flash = document.getElementById('flash-message');
-    var flashParagraph = flash.querySelector('p');
-    flashParagraph.innerHTML = message;
-    flash.classList.add('failure');
-    flash.classList.remove('success');
-    flash.classList.remove('hidden');
-    setTimeout(function () { flash.classList.add('hidden'); }, 3000);
   }
 })();
