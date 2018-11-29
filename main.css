@@ -12,12 +12,10 @@ html, body {
 }
 
 body {
-	opacity: 0;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 18px;
 	color: #F8F8F8;
 	padding-bottom: 50px;
-	transition: opacity 0.3s ease;
 }
 
 #main {
@@ -25,27 +23,23 @@ body {
 }
 
 #svg-wrapper {
-	padding: 10px 10px 50px 10px;
 	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	top: 0;
 	bottom: 0;
 	right: 0;
 	left: 0;
-	transition: top 0.15s linear;
+	text-align: left;
 }
 
 nav {
-	max-height: 100vh;
-	position: relative;
+	max-height: 100px;
+	position: fixed;
 	z-index: 10;
 	top: 0;
 	width: 100%;
 	background-color: #333;
 	height: 500px;
-	opacity: 0.9;
+	opacity: 0.7;
 	text-align: center;
 }
 
@@ -63,7 +57,6 @@ nav span {
 svg {
 	height: 100%;
 	max-width: 100%;
-	flex: 1;
 }
 
 /* viewbox for one line version -400 0 1260 212.5 --- original: 0 0 434.4 212.5*/
@@ -73,7 +66,7 @@ nav.stuck {
 }
 
 nav.stuck #svg-wrapper {
-		padding: 10px 10px 10px 10px;
+		padding: 10px 10px 10px 0;
 }
 
 nav.stuck span {
