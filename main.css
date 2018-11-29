@@ -310,6 +310,7 @@ form img#wait-for-recaptcha {
 }
 
 #flash-message {
+	text-align: center;
 	display: flex;
   align-items: center;
 	line-height: 100px;
