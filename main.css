@@ -1,7 +1,8 @@
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 html, body {
@@ -73,24 +74,10 @@ nav.stuck span {
 	opacity: 0;
 }
 
-nav.stuck .names {
-	transform: scale(2);
-}
-
-nav.stuck .cole {
-	transform: translateY(-20px) translateX(-260px);
-}
-
-nav.stuck .lopez {
-	transform: translateY(-80px) translateX(-20px);
-}
-
-nav.stuck .hexagon {
-	transform: translateX(-350px);
-}
-
 h2 {
-	flex: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
 	z-index: 5;
 	font-size: 70px;
 	color: white;
@@ -147,16 +134,23 @@ footer p {
 }
 
 .jarallax {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
     height: 500px;
     position: relative;
     z-index: 0;
 }
 .jarallax img {
     position: absolute;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     font-family: 'object-fit: cover;';
     top: 0;
     left: 0;
@@ -195,9 +189,8 @@ form #email, form #subject, form button {
   color: white;
   background-color: #900;
   border-radius: 5px;
-
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0.3em;
 }
 
@@ -258,8 +251,12 @@ form #recaptcha-wrapper-wrapper {
 }
 
 form #recaptcha-wrapper {
+	  display: -webkit-box;
+	  display: -ms-flexbox;
 	  display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   	margin: 20px 0;
 }
 
@@ -276,7 +273,9 @@ form img#wait-for-recaptcha {
 
 @media screen and (max-width: 400px) {
 	form #recaptcha-wrapper {
-		transform: scale(0.9);
+		-webkit-transform: scale(0.9);
+		    -ms-transform: scale(0.9);
+		        transform: scale(0.9);
 	}
 
 	section {
@@ -311,8 +310,12 @@ form img#wait-for-recaptcha {
 
 #flash-message {
 	text-align: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 	line-height: 100px;
 	color: #222;
 	height: 100px;
@@ -321,11 +324,15 @@ form img#wait-for-recaptcha {
 	z-index: 100;
 	width: 100%;
 	opacity: 1;
+	-webkit-transition: opacity 0.5s ease;
+	-o-transition: opacity 0.5s ease;
 	transition: opacity 0.5s ease;
 }
 
 #flash-message p {
-	flex: 1;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
 }
 
 #flash-message.hidden {
@@ -392,4 +399,3 @@ form img#wait-for-recaptcha {
 		font-size: 12px;
 	}
 }
-
