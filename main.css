@@ -33,15 +33,22 @@ body {
 }
 
 nav {
-	max-height: 100px;
+	height: 100px;
 	position: fixed;
 	z-index: 10;
 	top: 0;
 	width: 100%;
-	background-color: #333;
-	height: 500px;
-	opacity: 0.7;
+	background-color: rgba(51, 51, 51, 1);
 	text-align: center;
+	transition: background-color 0.5s ease;
+}
+
+nav.translucent {
+	background-color: rgba(51, 51, 51, 0.8);
+}
+
+#main {
+	top: 100px;
 }
 
 nav span {
@@ -117,7 +124,7 @@ footer {
 	width: 100%;
 	height: 50px;
 	position: absolute;
-	bottom: 0;
+	bottom: -100px;
 }
 
 footer p {
@@ -285,6 +292,14 @@ form img#wait-for-recaptcha {
 		padding: 5px;
 	}
 
+	#main {
+		top: 80px;
+	}
+
+	footer {
+		bottom: -80px;
+	}
+
 	nav span {
 		font-size: 14px;
 		bottom: 5px;
@@ -355,6 +370,14 @@ form img#wait-for-recaptcha {
 
 	nav {
 		height: 60px;
+	}
+
+	#main {
+		top: 60px;
+	}
+
+	footer {
+		bottom: -60px;
 	}
 }
 
