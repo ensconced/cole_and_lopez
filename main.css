@@ -24,23 +24,17 @@ body {
 	top: 100px;
 }
 
-#svg-wrapper {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	text-align: left;
-}
-
 nav {
+	padding: 5px 5px 5px 10px;
 	height: 100px;
 	position: fixed;
 	z-index: 10;
 	top: 0;
 	width: 100%;
 	background-color: rgba(51, 51, 51, 1);
-	text-align: center;
+	text-align: left;
+	-webkit-transition: background-color 0.5s ease;
+	-o-transition: background-color 0.5s ease;
 	transition: background-color 0.5s ease;
 }
 
@@ -62,10 +56,6 @@ nav span {
 #logo {
 	height: 100%;
 	max-width: 100%;
-}
-
-nav #svg-wrapper {
-		padding: 10px;
 }
 
 nav span {
@@ -302,10 +292,6 @@ form img#wait-for-recaptcha {
 		bottom: 5px;
 	}
 
-	#svg-wrapper {
-		padding: 5px 5px 20px 5px;
-	}
-
 	.jarallax {
 		height: 300px;
 	}
@@ -326,7 +312,7 @@ form img#wait-for-recaptcha {
 	line-height: 100px;
 	color: #222;
 	height: 100px;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	z-index: 100;
 	width: 100%;
@@ -385,10 +371,6 @@ form img#wait-for-recaptcha {
 
 	nav {
 		padding: 5px;
-	}
-
-	#svg-wrapper {
-		padding: 5px 5px 20px 5px;
 	}
 
 	nav span {

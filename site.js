@@ -6,6 +6,7 @@ function checkIfMobile() {
   return check;
 };
 function setUpForm() {
+  var formTimeout;
   var debouncedShowNav = debounce(showNav, 5000);
   var form  = document.getElementsByTagName('form')[0];
   var button = document.getElementById('form-button');
@@ -178,7 +179,6 @@ function setUpForm() {
 
 (function () {
   var nav = document.querySelector('nav');
-  var formTimeout;
   var wait;
   var stagedCallback;
 
@@ -192,7 +192,7 @@ function setUpForm() {
     }
   }
   function handleScroll(ev) {
-    if (document.documentElement.scrollTop > document.querySelector('nav').clientHeight) {
+    if ((document.documentElement.scrollTop || document.body.scrollTop) > document.querySelector('nav').clientHeight) {
       nav.className = 'translucent';
     } else {
       nav.className = '';
