@@ -21,6 +21,7 @@ body {
 
 #main {
 	position: relative;
+	top: 100px;
 }
 
 #svg-wrapper {
@@ -44,11 +45,7 @@ nav {
 }
 
 nav.translucent {
-	background-color: rgba(51, 51, 51, 0.8);
-}
-
-#main {
-	top: 100px;
+	background-color: rgba(51, 51, 51, 0.9);
 }
 
 nav span {
