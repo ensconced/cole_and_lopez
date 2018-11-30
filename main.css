@@ -16,12 +16,15 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 18px;
 	color: #F8F8F8;
-	padding-bottom: 50px;
+}
+
+#main-wrapper {
+	position: relative;
+	top: 100px;
 }
 
 #main {
-	position: relative;
-	top: 100px;
+	padding-bottom: 20px;
 }
 
 nav {
@@ -120,20 +123,31 @@ p:first-child {
 }
 
 footer {
+	min-height: 50px;
+	padding: 0 20px;
 	color: #DDDDDD;
 	background-color: #111;
 	text-align: center;
 	width: 100%;
-	height: 50px;
 	position: absolute;
-	bottom: -100px;
 }
 
-footer p {
+footer div {
+	margin: 0 auto;
+	max-width: 900px;
+}
+
+footer span.outer {
 	font-size: 15px;
+	width: 240px;
 	height: 100%;
 	margin: 0;
 	line-height: 50px;
+	display: inline-block;
+}
+
+footer a {
+	color: inherit;
 }
 
 .jarallax {
@@ -350,12 +364,8 @@ form img#wait-for-recaptcha {
 		padding: 10px;
 	}
 
-	#main {
+	#main-wrapper {
 		top: 80px;
-	}
-
-	footer {
-		bottom: -80px;
 	}
 
 	nav span {
@@ -390,17 +400,17 @@ form img#wait-for-recaptcha {
 		padding: 0;
 	}
 
+	footer span.outer {
+		width: 200px;
+	}
+
 	nav {
 		height: 60px;
 		padding: 8px;
 	}
 
-	#main {
+	#main-wrapper {
 		top: 60px;
-	}
-
-	footer {
-		bottom: -60px;
 	}
 }
 
@@ -426,7 +436,7 @@ form img#wait-for-recaptcha {
 		font-size: 40px;
 	}
 
-	footer p {
+	footer span.outer {
 		font-size: 12px;
 	}
 }
