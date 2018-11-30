@@ -1,8 +1,8 @@
 * {
 	margin: 0;
 	padding: 0;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	        -webkit-box-sizing: border-box;
+	                box-sizing: border-box;
 }
 
 html, body {
@@ -60,27 +60,21 @@ nav span {
 	max-width: 100%;
 }
 
-/* viewbox for one line version -400 0 1260 212.5 --- original: 0 0 434.4 212.5*/
-
-nav.stuck {
-	position: fixed;
-}
-
-nav.stuck #svg-wrapper {
+nav #svg-wrapper {
 		padding: 10px;
 }
 
-nav.stuck span {
+nav span {
 	opacity: 0;
 }
 
 h2 {
-	-webkit-box-flex: 1;
-	    -ms-flex: 1;
-	        flex: 1;
+	padding: 10px;
 	z-index: 5;
 	font-size: 70px;
-	color: white;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #eee;
 	text-align: center;
 }
 
@@ -137,20 +131,20 @@ footer p {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
-		-webkit-box-align: center;
-		    -ms-flex-align: center;
-		        align-items: center;
-		-webkit-box-pack: center;
-		    -ms-flex-pack: center;
-		        justify-content: center;
+		        -webkit-box-align: center;
+		            -ms-flex-align: center;
+		                align-items: center;
+		        -webkit-box-pack: center;
+		            -ms-flex-pack: center;
+		                justify-content: center;
     height: 500px;
     position: relative;
     z-index: 0;
 }
 .jarallax img {
     position: absolute;
-    -o-object-fit: cover;
-       object-fit: cover;
+       -o-object-fit: cover;
+          object-fit: cover;
     font-family: 'object-fit: cover;';
     top: 0;
     left: 0;
@@ -189,8 +183,8 @@ form #email, form #subject, form button {
   color: white;
   background-color: #900;
   border-radius: 5px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
   padding: 0.3em;
 }
 
@@ -273,9 +267,9 @@ form img#wait-for-recaptcha {
 
 @media screen and (max-width: 400px) {
 	form #recaptcha-wrapper {
-		-webkit-transform: scale(0.9);
-		    -ms-transform: scale(0.9);
-		        transform: scale(0.9);
+		        -webkit-transform: scale(0.9);
+		            -ms-transform: scale(0.9);
+		                transform: scale(0.9);
 	}
 
 	section {
@@ -287,6 +281,7 @@ form img#wait-for-recaptcha {
 	}
 
 	nav {
+		height: 80px;
 		padding: 5px;
 	}
 
@@ -330,9 +325,9 @@ form img#wait-for-recaptcha {
 }
 
 #flash-message p {
-	-webkit-box-flex: 1;
-	    -ms-flex: 1;
-	        flex: 1;
+	        -webkit-box-flex: 1;
+	            -ms-flex: 1;
+	                flex: 1;
 }
 
 #flash-message.hidden {
@@ -359,8 +354,7 @@ form img#wait-for-recaptcha {
 	}
 
 	nav {
-		height: 300px;
-		padding: 10px;
+		height: 60px;
 	}
 }
 
@@ -370,7 +364,6 @@ form img#wait-for-recaptcha {
   }
 
 	nav {
-		height: 180px;
 		padding: 5px;
 	}
 
@@ -381,10 +374,6 @@ form img#wait-for-recaptcha {
 	nav span {
 		font-size: 14px;
 		bottom: 5px;
-	}
-
-	#logo {
-		height: 60%;
 	}
 
 	.jarallax {
