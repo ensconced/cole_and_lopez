@@ -1,2 +1,2 @@
-jekyllsite for cole and lopez
+jekyll site for cole and lopez
 ======================
