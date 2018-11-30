@@ -7,7 +7,7 @@
 
 html, body {
 	position: relative;
-	background-color: #333;
+	background-color: #222;
 	min-height: 150vh;
 	scroll-behavior: smooth;
 }
@@ -25,13 +25,13 @@ body {
 }
 
 nav {
-	padding: 5px 5px 5px 10px;
+	padding: 10px;
 	height: 100px;
 	position: fixed;
-	z-index: 10;
+	z-index: 1;
 	top: 0;
 	width: 100%;
-	background-color: rgba(51, 51, 51, 1);
+	background-color: rgba(34, 34, 34, 1);
 	text-align: left;
 	-webkit-transition: background-color 0.5s ease;
 	-o-transition: background-color 0.5s ease;
@@ -56,6 +56,21 @@ nav span {
 #logo {
 	height: 100%;
 	max-width: 100%;
+}
+
+nav a {
+	position: absolute;
+	right: 30px;
+	top: 30px;
+}
+
+nav a svg {
+	height: 40px;
+	width: 40px;
+}
+
+#insta-path {
+	fill: #ddd;
 }
 
 nav span {
@@ -106,7 +121,7 @@ p:first-child {
 
 footer {
 	color: #DDDDDD;
-	background-color: #222;
+	background-color: #111;
 	text-align: center;
 	width: 100%;
 	height: 50px;
@@ -259,48 +274,6 @@ form img#wait-for-recaptcha {
     z-index: -1;
 }
 
-@media screen and (max-width: 400px) {
-	form #recaptcha-wrapper {
-		        -webkit-transform: scale(0.9);
-		            -ms-transform: scale(0.9);
-		                transform: scale(0.9);
-	}
-
-	section {
-		font-size: 15px;
-	}
-
-	table {
-		padding: 0 20px;
-	}
-
-	nav {
-		height: 80px;
-		padding: 5px;
-	}
-
-	#main {
-		top: 80px;
-	}
-
-	footer {
-		bottom: -80px;
-	}
-
-	nav span {
-		font-size: 14px;
-		bottom: 5px;
-	}
-
-	.jarallax {
-		height: 300px;
-	}
-
-	h2 {
-		font-size: 40px;
-	}
-}
-
 #flash-message {
 	text-align: center;
 	display: -webkit-box;
@@ -329,7 +302,7 @@ form img#wait-for-recaptcha {
 }
 
 #flash-message.hidden {
-	opacity: 0;
+	display: none;
 }
 
 #flash-message.success {
@@ -341,7 +314,73 @@ form img#wait-for-recaptcha {
 	color: white;
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 650px) {
+	nav a {
+		right: 15px;
+		top: 33px;
+	}
+
+	nav a svg {
+		height: 34px;
+		width: 34px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	nav a {
+		top: 23px;
+	}
+
+	form #recaptcha-wrapper {
+		        -webkit-transform: scale(0.9);
+		            -ms-transform: scale(0.9);
+		                transform: scale(0.9);
+	}
+
+	section {
+		font-size: 15px;
+	}
+
+	table {
+		padding: 0 20px;
+	}
+
+	nav {
+		height: 80px;
+		padding: 10px;
+	}
+
+	#main {
+		top: 80px;
+	}
+
+	footer {
+		bottom: -80px;
+	}
+
+	nav span {
+		font-size: 14px;
+		bottom: 5px;
+	}
+
+	.jarallax {
+		height: 300px;
+	}
+
+	h2 {
+		font-size: 40px;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	nav a {
+		top: 16px;
+	}
+
+	nav a svg {
+		height: 28px;
+		width: 28px;
+	}
 	section {
 		font-size: 14px;
 		padding: 10px;
@@ -353,6 +392,7 @@ form img#wait-for-recaptcha {
 
 	nav {
 		height: 60px;
+		padding: 8px;
 	}
 
 	#main {
@@ -370,7 +410,7 @@ form img#wait-for-recaptcha {
   }
 
 	nav {
-		padding: 5px;
+		padding: 10px;
 	}
 
 	nav span {
