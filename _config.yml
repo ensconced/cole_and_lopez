@@ -15,7 +15,7 @@ markdown: kramdown
 
 ### content configuration ###
 title:       "Cole & Lopez"
-keywords:    "design fabrication daniel cole miguel lopez creative fabrication"
+keywords:    "design fabrication daniel cole miguel lopez creative film TV theatre sculpting modelmaking electronics graphics special effects mouldmaking casting"
 description: "Design and fabrication for creative industries."
 source_link: "https://github.com/ensconced/jekyllcandl"
 favicon:     "img/favicon.ico"
