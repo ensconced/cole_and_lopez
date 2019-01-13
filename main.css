@@ -82,7 +82,7 @@ nav span {
 }
 
 .autocarousel {
-	height: 150px;
+	height: 80px;
 }
 
 #previous-projects {
@@ -408,7 +408,7 @@ form img#wait-for-recaptcha {
 	}
 
 	h3 {
-		font-size: 16px;
+		font-size: 13px;
 	}
 
 	#previous-projects {
