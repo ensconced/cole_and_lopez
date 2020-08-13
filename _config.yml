@@ -4,7 +4,20 @@ host: 0.0.0.0
 safe: false
 
 ### site serving configuration ###
-exclude: [CNAME, README.md, .gitignore, todo.md, .prettierignore]
+exclude:
+  [
+    CNAME,
+    README.md,
+    .gitignore,
+    todo.md,
+    .prettierignore,
+    package.json,
+    node_modules,
+    yarn.lock,
+    yarn-error.log,
+    src,
+    webpack.config.js,
+  ]
 permalink: /:title ## disables post output
 timezone: null
 lsi: false
