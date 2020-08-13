@@ -1,7 +1,9 @@
-jekyll site for cole and lopez
+coleandlopez.com
 ======================
 
 This site is hosted at www.coleandlopez.com using github pages.
+
+To run the site locally, clone the repo and run `bundle exec jekyll serve`.
 
 It uses forestry CMS - this can be accessed at www.coleandlopez.com/admin.
 
