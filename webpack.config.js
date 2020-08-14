@@ -17,6 +17,24 @@ const config = {
     filename: "index.js",
     path: path.resolve(__dirname, "built"),
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-react"],
+          },
+        },
+      },
+    ],
+  },
 };
 
 if (process.env.WEBPACK_WATCH === "true") {
