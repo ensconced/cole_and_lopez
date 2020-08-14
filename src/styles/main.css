@@ -1,0 +1,483 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+html,
+body {
+  position: relative;
+  background-color: #222;
+  min-height: 150vh;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #f8f8f8;
+}
+
+#main-wrapper {
+  position: relative;
+  top: 100px;
+}
+
+#main {
+  padding-bottom: 20px;
+}
+
+nav {
+  padding: 10px;
+  height: 100px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background-color: rgba(34, 34, 34, 1);
+  text-align: left;
+  -webkit-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+nav.translucent {
+  background-color: rgba(51, 51, 51, 0.9);
+}
+
+nav span {
+  padding: 0 10px 0 10px;
+  color: #aaa;
+  font-style: italic;
+  position: absolute;
+  bottom: 20px;
+  left: 10%;
+  margin: auto;
+  width: 80%;
+}
+
+#logo {
+  height: 100%;
+  max-width: 100%;
+}
+
+nav a {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+nav a svg {
+  height: 40px;
+  width: 40px;
+}
+
+#insta-path {
+  fill: #ddd;
+}
+
+nav span {
+  opacity: 0;
+}
+
+.autocarousel {
+  height: 80px;
+}
+
+#previous-projects {
+  background-color: #eee;
+  color: #333;
+  overflow: auto;
+}
+
+.autocarousel li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  overflow-wrap: break-word;
+}
+
+h2 {
+  padding: 10px;
+  z-index: 5;
+  font-size: 70px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #eee;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+section {
+  max-width: 700px;
+  padding: 20px;
+  margin: auto;
+}
+
+td {
+  padding: 50px 0;
+}
+
+p {
+  line-height: 1.2em;
+  margin-top: 25px;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  width: 70%;
+  text-align: left;
+}
+
+td p {
+  margin-top: 0px;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+footer {
+  font-size: 15px;
+  min-height: 50px;
+  padding: 0 20px;
+  color: #dddddd;
+  background-color: #111;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+}
+
+footer div {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+footer span.outer {
+  font-size: 15px;
+  width: 240px;
+  height: 100%;
+  margin: 0;
+  line-height: 50px;
+  display: inline-block;
+}
+
+footer a {
+  color: inherit;
+}
+
+.jarallax {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 500px;
+  position: relative;
+  z-index: 0;
+}
+.jarallax img {
+  position: absolute;
+  -o-object-fit: cover;
+  object-fit: cover;
+  font-family: "object-fit: cover;";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+form {
+  padding: 0;
+}
+
+form input,
+form textarea,
+form button {
+  display: block;
+  font-size: inherit;
+  margin: 5px 0 20px 0;
+  border-radius: 8px;
+  background-color: #eee;
+}
+
+form #email,
+form #subject,
+form button {
+  height: 2rem;
+  width: 90%;
+  padding: 0 5px;
+}
+
+/* This is the style of our error messages */
+.error {
+  position: relative;
+  bottom: 15px;
+  display: none;
+  max-width: 300px;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.3em;
+}
+
+.error.active {
+  display: block;
+}
+
+.error#recaptcha-error {
+  bottom: 5px;
+  margin: -10px auto 10px auto;
+  text-align: center;
+}
+
+form textarea {
+  resize: none;
+  padding: 5px;
+  width: 100%;
+  height: 180px;
+}
+
+form input {
+  max-width: 300px;
+}
+
+form button,
+form img {
+  max-width: 200px;
+}
+
+form button:hover {
+  cursor: pointer;
+}
+
+form button.pending {
+  position: relative;
+  padding-right: 2rem;
+  max-width: 220px;
+}
+
+form button,
+form #form-spinner {
+  margin: 0 auto;
+}
+
+form #form-spinner {
+  position: absolute;
+  right: 5px;
+  height: 1.4rem;
+}
+
+form #form-spinner .spinner-circle {
+  fill: red;
+}
+
+form #recaptcha-wrapper-wrapper {
+  min-height: 118px;
+  overflow: auto;
+  position: relative;
+  text-align: center;
+}
+
+form #recaptcha-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+form img#wait-for-recaptcha {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  display: inline;
+  top: 59px;
+  margin-top: -25px;
+  margin-left: -25px;
+  z-index: -1;
+}
+
+#flash-message {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  line-height: 100px;
+  color: #222;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+#flash-message p {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+#flash-message.hidden {
+  display: none;
+}
+
+#flash-message.success {
+  background-color: lightgreen;
+}
+
+#flash-message.failure {
+  background-color: #900;
+  color: white;
+}
+
+@media screen and (max-width: 650px) {
+  nav a {
+    right: 15px;
+    top: 33px;
+  }
+
+  nav a svg {
+    height: 34px;
+    width: 34px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  nav a {
+    top: 23px;
+  }
+
+  form #recaptcha-wrapper {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  section {
+    font-size: 15px;
+  }
+
+  table {
+    padding: 0 20px;
+  }
+
+  nav {
+    height: 80px;
+    padding: 10px;
+  }
+
+  #main-wrapper {
+    top: 80px;
+  }
+
+  nav span {
+    font-size: 14px;
+    bottom: 5px;
+  }
+
+  .jarallax {
+    height: 300px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 13px;
+  }
+
+  #previous-projects {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  nav a {
+    top: 16px;
+  }
+
+  nav a svg {
+    height: 28px;
+    width: 28px;
+  }
+  section {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  table {
+    padding: 0;
+  }
+
+  footer span.outer {
+    width: 200px;
+  }
+
+  nav {
+    height: 60px;
+    padding: 8px;
+  }
+
+  #main-wrapper {
+    top: 60px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  th {
+    display: none;
+  }
+
+  nav {
+    padding: 10px;
+  }
+
+  nav span {
+    font-size: 14px;
+    bottom: 5px;
+  }
+
+  .jarallax {
+    height: 300px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  footer span.outer {
+    font-size: 12px;
+  }
+}

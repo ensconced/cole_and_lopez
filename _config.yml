@@ -15,10 +15,10 @@ exclude:
     node_modules,
     yarn.lock,
     yarn-error.log,
-    src,
     webpack.config.js,
   ]
 permalink: /:title ## disables post output
+source: ./built
 timezone: null
 lsi: false
 markdown: kramdown

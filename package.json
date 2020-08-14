@@ -6,14 +6,17 @@
   "author": "Joe Barnett <<joebarnett876@gmail.com>>",
   "license": "MIT",
   "dependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "start:dev": "WEBPACK_WATCH=true webpack --config webpack.config.js & bundle exec jekyll serve",
-    "build": "webpack --config webpack.config.js && bundle exec jekyll build",
+    "start:dev": "./start-dev",
+    "build:webpack": "webpack --config webpack.config.js",
+    "build": "yarn run build:webpack && bundle exec jekyll build",
     "serve": "bundle exec jekyll serve"
   }
 }
