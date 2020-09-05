@@ -9,4 +9,4 @@ yarn build:webpack
 
 # watchers
 WEBPACK_WATCH=true webpack --config webpack.config.js &
-bundle exec jekyll serve --livereload
+bundle exec jekyll serve # --livereload
