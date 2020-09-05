@@ -1,29 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Carousel from "react-bootstrap/Carousel";
-import styles from "bootstrap/dist/css/bootstrap.min.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import brushes from "../img/brushes.jpg";
 class MyGallery extends React.Component {
   render() {
     return (
       <Carousel>
         <Carousel.Item>
-          <img
-            className={`${styles["d-block"]} ${styles[`w-100`]}`}
-            src="holder.js/800x400?text=First slide&bg=373940"
+          <div
+            style={{
+              backgroundImage: `url("https://picsum.photos/800/400")`,
+            }}
             alt="First slide"
-          />
+          ></div>
           <Carousel.Caption>
             <h3>First slide label</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className={`${styles["d-block"]} ${styles[`w-100`]}`}
-            src="holder.js/800x400?text=Second slide&bg=282c34"
-            alt="Third slide"
-          />
+          <img src="https://picsum.photos/800/400" alt="Third slide" />
 
           <Carousel.Caption>
             <h3>Second slide label</h3>
@@ -31,11 +28,7 @@ class MyGallery extends React.Component {
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className={`${styles["d-block"]} ${styles[`w-100`]}`}
-            src="holder.js/800x400?text=Third slide&bg=20232a"
-            alt="Third slide"
-          />
+          <img src="https://picsum.photos/800/400" alt="Third slide" />
 
           <Carousel.Caption>
             <h3>Third slide label</h3>

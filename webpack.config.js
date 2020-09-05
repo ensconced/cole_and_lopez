@@ -4,7 +4,10 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const config = {
   mode: "production",
-  entry: "./src/js/index.js",
+  entry: {
+    index: "./src/js/index.js",
+    gallery: "./src/js/gallery.js",
+  },
   plugins: [
     new CopyPlugin({
       patterns: [
@@ -14,11 +17,19 @@ const config = {
     }),
   ],
   output: {
-    filename: "index.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "built"),
   },
   module: {
     rules: [
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
       {
         test: /\.css$/i,
         use: [
@@ -27,7 +38,7 @@ const config = {
             loader: "css-loader",
             options: {
               importLoaders: 1,
-              modules: true,
+              modules: false,
               // localIdentName: "[name]__[local]___[hash:base64:5]"
             },
           },

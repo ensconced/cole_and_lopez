@@ -25,5 +25,8 @@
     "build:webpack": "webpack --config webpack.config.js",
     "build": "yarn run build:webpack && bundle exec jekyll build",
     "serve": "bundle exec jekyll serve"
+  },
+  "devDependencies": {
+    "file-loader": "^6.1.0"
   }
 }
