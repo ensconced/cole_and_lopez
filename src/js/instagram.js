@@ -9,6 +9,7 @@ async function main() {
     "https://www.instagram.com/graphql/query/?query_hash=42323d64886122307be10013ad2dcc44&variables={%22id%22:%228251130873%22,%22first%22:4}"
   );
   const data = await response.json();
+  debugger;
   const postIds = data.data.user.edge_owner_to_timeline_media.edges.map(
     (edge) => edge.node.shortcode
   );
@@ -22,6 +23,8 @@ async function main() {
   );
   posts.forEach((post) => {
     const el = document.createElement("div");
+    el.style.width = "326px";
+    el.style.border = "5px solid blue";
     el.innerHTML = post;
     document.body.appendChild(el);
   });
