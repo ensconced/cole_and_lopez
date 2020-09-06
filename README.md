@@ -6,7 +6,7 @@ To run the site locally, clone the repo and run `bundle exec jekyll serve`.
 
 It uses forestry CMS - this can be accessed at www.coleandlopez.com/admin.
 
-The contact form uses a sinatra backend, hosted by heroku. This is included as a submodule, in the `backend` directory.
+The contact form uses a sinatra backend, hosted by heroku. This is included as a submodule, in the `backend` directory. To deploy the backend, just push to heroku from the backend submodule. To deploy the frontend, push to the gh-pages branch.
 
 The build for the front end has two steps:
 
