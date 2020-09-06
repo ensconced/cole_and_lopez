@@ -1,0 +1,52 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    domain_name (0.5.20180417)
+      unf (>= 0.0.5, < 1.0.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    json (2.1.0)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    mailgun-ruby (1.1.11)
+      rest-client (~> 2.0.2)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2018.0812)
+    mini_mime (1.0.1)
+    mustermann (1.0.3)
+    netrc (0.11.0)
+    pony (1.12)
+      mail (>= 2.0)
+    rack (2.0.6)
+    rack-protection (2.0.4)
+      rack
+    rest-client (2.0.2)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    sinatra (2.0.4)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.4)
+      tilt (~> 2.0)
+    tilt (2.0.8)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  json
+  mailgun-ruby
+  pony
+  rack
+  sinatra
+
+RUBY VERSION
+   ruby 2.4.1p111
+
+BUNDLED WITH
+   1.17.1
