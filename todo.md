@@ -16,5 +16,4 @@ todo.md
 - [ ] figure out what should be gitignored, what should be ignored in jekyll config
 - [ ] add an image gallery - send demo to dan
 - [ ] address build DNS warning
-- [ ] take a look at the form backend
 - [ ] do a little ruby refresher
