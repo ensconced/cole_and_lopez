@@ -15,7 +15,9 @@ then
     echo your changes will soon appear at https://ensconced.github.io/cole_and_lopez_staging/
   else
     echo git tree must be clean
+    exit 1
   fi
 else
   echo must be on branch '"staging"'
+  exit 1
 fi
