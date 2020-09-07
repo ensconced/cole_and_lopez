@@ -6,13 +6,13 @@ if [ "$branch" = staging ]
 then
   if [ -z "$(git status --porcelain)" ]
   then
-    if [ -f CNAME ];
+    echo staging.coleandlopez.com > CNAME
+    if [ -z "$(git status --porcelain)" ]
     then
-      rm CNAME
-      git commit -am "remove CNAME (automatic commit by deploy script)"
+      git commit -am "fix CNAME (automatic commit by deploy script)"
     fi
     git push staging staging
-    echo your changes will soon appear at https://ensconced.github.io/cole_and_lopez_staging/
+    echo your changes will soon appear at staging.coleandlopez.com
   else
     echo git tree must be clean
     exit 1
