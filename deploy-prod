@@ -12,9 +12,10 @@ then
     then
       touch CNAME
       echo "www.coleandlopez.com" > CNAME
+      echo committing....
       git commit -am "adding CNAME (automatic commit from deploy script)"
     fi
-    git push origin master
+    # git push origin master
     echo your changes will soon appear at https://www.coleandlopez.com
   else
     echo git tree must be clean
