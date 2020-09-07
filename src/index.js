@@ -1,1 +1,1 @@
-console.log("hello from cole_and_lopez");
+console.log("this is the staging site");
