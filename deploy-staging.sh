@@ -6,8 +6,7 @@ if [ "$branch" = staging ]
 then
   if [ -z "$(git status --porcelain)" ]
   then
-    ls CNAME
-    if ls CNAME;
+    if ls CNAME > /dev/null;
     then
       rm CNAME
       git commit -am "remove CNAME (automatic commit by deploy script)"
