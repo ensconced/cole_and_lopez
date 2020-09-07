@@ -10,7 +10,7 @@ then
     then
       rm CNAME
       git commit -am "remove CNAME (automatic commit by deploy script)"
-      git push cole_and_lopez_staging staging
+      git push staging staging
     fi
     echo your changes will soon appear at https://ensconced.github.io/cole_and_lopez_staging/
   else
