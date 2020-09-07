@@ -24,3 +24,9 @@ The staging deployment works by pushing to a second repo, which also has github 
 - backend repo https://github.com/ensconced/cole-and-lopez-contact-form-backend
 - backend on heroku https://dashboard.heroku.com/apps/cole-and-lopez-form-backend
 - google recaptcha login: https://www.google.com/recaptcha/admin/site/343543709
+  The build for the front end has two steps:
+
+- run the webpack build, which intakes from `/src`, and outputs to `/built`
+- run the jekyll build, which intakes from `/built`, and outputs to `/_site`
+
+NB the second step is required for local development, but the `_site` can directory is git-ignored since github does this build for us behind the scenes in the deployment to github-pages.
