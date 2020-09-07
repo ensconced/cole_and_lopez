@@ -14,6 +14,8 @@
   "scripts": {
     "start:dev": "WEBPACK_WATCH=true webpack --config webpack.config.js & bundle exec jekyll serve",
     "build": "webpack --config webpack.config.js && bundle exec jekyll build",
-    "serve": "bundle exec jekyll serve"
+    "serve": "bundle exec jekyll serve",
+    "deploy:staging": "yarn build && ./deploy-staging",
+    "deploy:prod": "yarn build && ./deploy-prod"
   }
 }
