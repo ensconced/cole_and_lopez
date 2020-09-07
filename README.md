@@ -8,6 +8,13 @@ It uses forestry CMS - this can be accessed at www.coleandlopez.com/admin.
 
 The contact form uses a ruby/sinatra backend, hosted by heroku
 
+### workflow
+
+- do development on staging branch
+- run yarn deploy:staging to test changes at https://ensconced.github.io/cole_and_lopez_staging/
+- when ready, merge staging into prod
+- deploy to prod by running yarn deploy:prod
+
 ### useful links
 
 - backend repo https://github.com/ensconced/cole-and-lopez-contact-form-backend
