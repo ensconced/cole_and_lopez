@@ -31,10 +31,9 @@
   "scripts": {
     "start:dev": "./start-dev",
     "build": "yarn run build:webpack && bundle exec jekyll build",
-    "serve": "bundle exec jekyll serve",
+    "build:webpack": "webpack --config webpack.config.js",
     "deploy:staging": "yarn build && ./deploy-staging",
-    "deploy:prod": "yarn build && ./deploy-prod",
-    "build:webpack": "webpack --config webpack.config.js"
+    "deploy:prod": "yarn build && ./deploy-prod"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
