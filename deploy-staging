@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+set -eu
+
 branch=$(git branch --show-current)
 
 if [ "$branch" = staging ]
@@ -9,7 +11,7 @@ then
     echo staging.coleandlopez.joebarnett.co.uk > CNAME
     if [ -z "$(git status --porcelain)" ]
     then
-      git commit -am "fix CNAME (automatic commit by deploy script)"
+      git commit -am "fix CNAME (automatic commit by deploy script)" || echo nothing to commit
     fi
     git push staging staging
     echo your changes will soon appear at staging.coleandlopez.joebarnett.co.uk
