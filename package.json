@@ -30,7 +30,8 @@
   },
   "scripts": {
     "start:dev": "./start-dev",
-    "build": "yarn run build:webpack && bundle exec jekyll build",
+    "build": "yarn run build:webpack && yarn jekyll:build",
+    "jekyll:build": "bundle exec jekyll build",
     "build:webpack": "webpack --config webpack.config.js",
     "deploy:staging": "yarn build && ./deploy-staging",
     "deploy:prod": "yarn build && ./deploy-prod"
