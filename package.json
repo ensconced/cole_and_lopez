@@ -30,8 +30,7 @@
   },
   "scripts": {
     "start:dev": "./start-dev",
-    "build": "eleventy --input=src --output=_site",
-    "build:webpack": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js && eleventy",
     "deploy:staging": "yarn build && ./deploy-staging",
     "deploy:prod": "yarn build && ./deploy-prod"
   },

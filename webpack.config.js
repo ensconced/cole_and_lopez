@@ -9,6 +9,7 @@ const config = {
     gallery: "./src/js/gallery.js",
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
         { from: "**/*.(html|css|ico)", context: "src" },
@@ -27,6 +28,9 @@ const config = {
         use: [
           {
             loader: "file-loader",
+            options: {
+              publicPath: "/",
+            },
           },
         ],
       },
@@ -39,7 +43,6 @@ const config = {
             options: {
               importLoaders: 1,
               modules: false,
-              // localIdentName: "[name]__[local]___[hash:base64:5]"
             },
           },
         ],
@@ -57,10 +60,5 @@ const config = {
     ],
   },
 };
-
-if (process.env.WEBPACK_WATCH === "true") {
-  config.plugins.unshift(new CleanWebpackPlugin());
-  config.watch = true;
-}
 
 module.exports = config;
