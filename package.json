@@ -29,13 +29,11 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "start:dev": "./start-dev",
-    "build": "webpack --config webpack.config.js && eleventy",
+    "build": "webpack --config webpack.config.js",
     "deploy:staging": "yarn build && ./deploy-staging",
     "deploy:prod": "yarn build && ./deploy-prod"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0",
     "babel-eslint": "^10.1.0",
     "eslint": "7.2.0",
     "eslint-config-react-app": "^5.2.1",
