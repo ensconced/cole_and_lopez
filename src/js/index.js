@@ -1,6 +1,9 @@
-import "./copyrightUpdater";
+import "../styles/reset.css";
+import "../styles/main.css";
+import "./mainPage";
 import "./isMobile";
 import "./autoCarousel";
 import "./lazysizes.min.js";
 import "./site";
-import "./instagram";
+// reinstate this later...
+// import "./instagram";

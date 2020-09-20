@@ -7,19 +7,20 @@ const config = {
   entry: {
     index: "./src/js/index.js",
     gallery: "./src/js/gallery.js",
+    404: "./src/js/404.js",
   },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin({
-      patterns: [
-        { from: "**/*.(html|css|ico)", context: "src" },
-        { from: "img/**/*", context: "src" },
-      ],
+      patterns: [{ from: "**/*.(html|ico)", context: "src" }],
     }),
   ],
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "built"),
+  },
+  resolve: {
+    extensions: [".jsx", ".js"],
   },
   module: {
     rules: [
@@ -28,9 +29,6 @@ const config = {
         use: [
           {
             loader: "file-loader",
-            options: {
-              publicPath: "/",
-            },
           },
         ],
       },
