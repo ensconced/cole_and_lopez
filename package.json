@@ -30,13 +30,14 @@
   },
   "scripts": {
     "start:dev": "./start-dev",
-    "build": "yarn run build:webpack && yarn jekyll:build",
+    "build": "eleventy --input=src --output=_site",
     "jekyll:build": "bundle exec jekyll build",
     "build:webpack": "webpack --config webpack.config.js",
     "deploy:staging": "yarn build && ./deploy-staging",
     "deploy:prod": "yarn build && ./deploy-prod"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
     "babel-eslint": "^10.1.0",
     "eslint": "7.2.0",
     "eslint-config-react-app": "^5.2.1",
