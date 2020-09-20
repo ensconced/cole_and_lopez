@@ -8,6 +8,7 @@ todo.md
 - [ ] tidy up image gallery and push to staging - send email to dan to show
 - [ ] move to netlify - might need access to godaddy or whatever domain provider dan used
 - [ ] incorporate backend into staging process
+- [ ] use https://github.com/dazuaz/responsive-loader or similar to improve image loading performance
 - [ ] convert backend into express
 - [ ] use different secrets on staging so emails come to me on staging for testing
 - [ ] make separate branch with instagram stuff

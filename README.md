@@ -17,6 +17,8 @@ The contact form uses a ruby/sinatra backend, hosted by heroku
 
 ## how staging works
 
+the staging branch is deployed on netlify at https://5f676204acc49600074787e6--admiring-sammet-13a32b.netlify.app/ - we should eventually move production to use netlify instead - then we can automatically make review branches based on github PRs...nice...
+
 The staging deployment works by pushing to a second repo, which also has github pages set up. The only difference is that the staging environment doesn't (or at least, shouldn't) have a CNAME file - so it's only available at the default github pages URL https://ensconced.github.io/cole_and_lopez_staging/ - not at www.coleandlopez.com. The deploy scripts try to make sure that the CNAME is present for the prod deployment, and not present for the staging deployment.
 
 ### useful links
