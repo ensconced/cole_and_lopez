@@ -31,7 +31,6 @@
   "scripts": {
     "start:dev": "./start-dev",
     "build": "eleventy --input=src --output=_site",
-    "jekyll:build": "bundle exec jekyll build",
     "build:webpack": "webpack --config webpack.config.js",
     "deploy:staging": "yarn build && ./deploy-staging",
     "deploy:prod": "yarn build && ./deploy-prod"
