@@ -93,7 +93,7 @@ function App() {
                 </tr>
               </tbody>
             </table>
-            <form id="form" novalidate>
+            <form id="form" name="contact" novalidate>
               <label for="email">Your email address: </label>
               <input
                 id="email"
