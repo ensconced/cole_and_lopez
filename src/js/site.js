@@ -100,71 +100,71 @@ window.setUpForm = function setUpForm() {
       false
     );
   }
-  function setUpFormSubmission() {
-    function handleFormSubmission(ev) {
-      function showPendingButton() {
-        button.disabled = true;
-        button.className = "pending";
-        button.innerHTML = "Sending message...";
-        var spinner = document.createElement("img");
-        spinner.setAttribute("id", "form-spinner");
-        spinner.setAttribute("src", "./img/tail-spin-dark.svg");
-        button.appendChild(spinner);
-      }
-      function showNormalButton() {
-        var spinner = button.querySelector("img");
-        button.removeChild(spinner);
-        button.disabled = false;
-        button.className = "";
-        button.innerHTML = "Send message";
-      }
+  // function setUpFormSubmission() {
+  //   function handleFormSubmission(ev) {
+  //     function showPendingButton() {
+  //       button.disabled = true;
+  //       button.className = "pending";
+  //       button.innerHTML = "Sending message...";
+  //       var spinner = document.createElement("img");
+  //       spinner.setAttribute("id", "form-spinner");
+  //       spinner.setAttribute("src", "./img/tail-spin-dark.svg");
+  //       button.appendChild(spinner);
+  //     }
+  //     function showNormalButton() {
+  //       var spinner = button.querySelector("img");
+  //       button.removeChild(spinner);
+  //       button.disabled = false;
+  //       button.className = "";
+  //       button.innerHTML = "Send message";
+  //     }
 
-      ev.preventDefault();
+  //     ev.preventDefault();
 
-      for (var i = 0; i < fields.length; i++) {
-        field = fields[i];
-        if (!field.validity.valid || !field.value) {
-          errors[i].innerHTML = "please enter a valid " + field.id;
-          errors[i].className = "error active";
-          field.focus();
-          return;
-        }
-      }
-      var recaptchaToken = grecaptcha.getResponse();
-      if (!recaptchaToken) {
-        var recaptchaError = document.getElementById("recaptcha-error");
-        recaptchaError.innerHTML = "please confirm that you are not a robot";
-        recaptchaError.className = "error active";
-      } else {
-        formTimeout = setTimeout(function () {
-          button.style.display = "block";
-          spinner.style.display = "none";
-          flashFailure();
-        }, 10000);
-        showPendingButton();
-        $.ajax({
-          type: "POST",
-          url: "https://cole-and-lopez-form-backend.herokuapp.com/send_email",
-          data: jqueryForm.serialize(),
-          dataType: "json",
-          success: function (response) {
-            showNormalButton();
-            switch (response.message) {
-              case "success":
-                form.reset();
-                grecaptcha.reset();
-                flashSuccess();
-                break;
-              case "failure_email":
-                flashFailure();
-            }
-          },
-        });
-      }
-    }
-    var jqueryForm = $("form");
-    jqueryForm.submit(handleFormSubmission);
-  }
+  //     for (var i = 0; i < fields.length; i++) {
+  //       field = fields[i];
+  //       if (!field.validity.valid || !field.value) {
+  //         errors[i].innerHTML = "please enter a valid " + field.id;
+  //         errors[i].className = "error active";
+  //         field.focus();
+  //         return;
+  //       }
+  //     }
+  //     var recaptchaToken = grecaptcha.getResponse();
+  //     if (!recaptchaToken) {
+  //       var recaptchaError = document.getElementById("recaptcha-error");
+  //       recaptchaError.innerHTML = "please confirm that you are not a robot";
+  //       recaptchaError.className = "error active";
+  //     } else {
+  //       formTimeout = setTimeout(function () {
+  //         button.style.display = "block";
+  //         spinner.style.display = "none";
+  //         flashFailure();
+  //       }, 10000);
+  //       showPendingButton();
+  //       $.ajax({
+  //         type: "POST",
+  //         url: "https://cole-and-lopez-form-backend.herokuapp.com/send_email",
+  //         data: jqueryForm.serialize(),
+  //         dataType: "json",
+  //         success: function (response) {
+  //           showNormalButton();
+  //           switch (response.message) {
+  //             case "success":
+  //               form.reset();
+  //               grecaptcha.reset();
+  //               flashSuccess();
+  //               break;
+  //             case "failure_email":
+  //               flashFailure();
+  //           }
+  //         },
+  //       });
+  //     }
+  //   }
+  //   var jqueryForm = $("form");
+  //   // jqueryForm.submit(handleFormSubmission);
+  // }
 
   fields.forEach(function (field, idx) {
     var error = errors[idx];
