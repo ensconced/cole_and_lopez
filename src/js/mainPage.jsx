@@ -131,14 +131,13 @@ function App() {
                 className="error"
                 aria-live="polite"
               ></span>
-              <div data-netlify-recaptcha="true"></div>
-              {/* <div id="recaptcha-wrapper-wrapper">
+              <div id="recaptcha-wrapper-wrapper">
                 <img
                   alt="wait-for-recaptcha"
                   id="wait-for-recaptcha"
                   src={tailSpin}
                 />
-              </div> */}
+              </div>
               <span
                 id="recaptcha-error"
                 className="error"
