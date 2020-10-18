@@ -1,12 +1,10 @@
 # coleandlopez.com
 
-This site is hosted at www.coleandlopez.com using github pages.
+This site is hosted at www.coleandlopez.com using github pages. pushing to master will re-deploy the live site!
 
-To run the site locally, clone the repo and run `bundle exec jekyll serve`.
+It is also hosted at joebarnett.co.uk, and the staging branch is at staging.joebarnett.co.uk. These are hosted by netlify. I would like to move over onto netlify completely, using netlify forms so I can remove the custom backend stuff (netlify also has support for recaptcha)...and maybe netlify CMS?
 
-It uses forestry CMS - this can be accessed at www.coleandlopez.com/admin.
-
-The contact form uses a ruby/sinatra backend, hosted by heroku
+To deploy on netlify, run `yarn build`, then commit all the changes and push.
 
 ### workflow
 
