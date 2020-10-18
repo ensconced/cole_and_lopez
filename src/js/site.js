@@ -1,3 +1,4 @@
+console.log("hello there");
 // setUpForm is at global scope for accessibility from onload in script tag
 window.setUpForm = function setUpForm() {
   var formTimeout;
