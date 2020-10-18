@@ -94,6 +94,7 @@ function App() {
               </tbody>
             </table>
             <form id="form" name="contact" novalidate>
+              <input type="hidden" name="form-name" value="contact" />
               <label for="email">Your email address: </label>
               <input
                 id="email"
