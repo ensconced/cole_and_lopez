@@ -102,15 +102,15 @@ window.setUpForm = function setUpForm() {
   }
   function setUpFormSubmission() {
     function handleFormSubmission(ev) {
-      function showPendingButton() {
-        button.disabled = true;
-        button.className = "pending";
-        button.innerHTML = "Sending message...";
-        var spinner = document.createElement("img");
-        spinner.setAttribute("id", "form-spinner");
-        spinner.setAttribute("src", "./img/tail-spin-dark.svg");
-        button.appendChild(spinner);
-      }
+      // function showPendingButton() {
+      //   button.disabled = true;
+      //   button.className = "pending";
+      //   button.innerHTML = "Sending message...";
+      //   var spinner = document.createElement("img");
+      //   spinner.setAttribute("id", "form-spinner");
+      //   spinner.setAttribute("src", "./img/tail-spin-dark.svg");
+      //   button.appendChild(spinner);
+      // }
       function showNormalButton() {
         var spinner = button.querySelector("img");
         button.removeChild(spinner);
@@ -141,7 +141,7 @@ window.setUpForm = function setUpForm() {
           spinner.style.display = "none";
           flashFailure();
         }, 10000);
-        showPendingButton();
+        // showPendingButton();
         $.ajax({
           type: "POST",
           url: "/",
