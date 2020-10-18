@@ -10,3 +10,8 @@
 #fullscreen svg path {
   fill: #ddd;
 }
+
+/* this seems to work, to hide the flickering outline bug */
+.carousel-item {
+  outline: 1px solid #222;
+}
