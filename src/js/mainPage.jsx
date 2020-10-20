@@ -138,6 +138,7 @@ function App() {
                   src={tailSpin}
                 />
               </div> */}
+              <div data-netlify-recaptcha="true"></div>
               <span
                 id="recaptcha-error"
                 className="error"
