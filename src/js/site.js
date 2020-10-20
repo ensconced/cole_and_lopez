@@ -179,7 +179,7 @@ window.setUpForm = function setUpForm() {
     configureError(field, error);
   });
 
-  setUpRecaptcha();
+  // setUpRecaptcha();
   setUpFormSubmission();
 };
 
