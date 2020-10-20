@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import Footer from "./footer";
-import logo from "../img/logo.svg";
-import danWorking from "../img/dan-working.jpg";
-import danWorkingSmall from "../img/dan-working-small.jpg";
-import miguelPainting from "../img/miguel-painting.jpg";
-import miguelPaintingSmall from "../img/miguel-painting-small.jpg";
-import tailSpin from "../img/tail-spin.svg";
+import Footer from './footer';
+import logo from '../img/logo.svg';
+import danWorking from '../img/dan-working.jpg';
+import danWorkingSmall from '../img/dan-working-small.jpg';
+import miguelPainting from '../img/miguel-painting.jpg';
+import miguelPaintingSmall from '../img/miguel-painting-small.jpg';
+import tailSpin from '../img/tail-spin.svg';
 
 function App() {
   return (
@@ -51,24 +51,22 @@ function App() {
           <section className="about-us">
             <p>Design and fabrication for creative industries.</p>
             <p>
-              We are a company that makes original and unique objects for film,
-              TV and theatre productions, as well as fine artists and designers.
-              All with passion and to a high technical standard.
+              We are a company that makes original and unique objects for film, TV and theatre
+              productions, as well as fine artists and designers. All with passion and to a high
+              technical standard.
             </p>
             <p>
-              Formed by Daniel Cole and Miguel Lopez. Together we have a diverse
-              skill base and knowledge of creative techniques and processes that
-              we bring to our work, and over the many years that we have worked
-              in the film industry we have built up a close network of skilled
-              and passionate colleagues and collaborators who work over a
-              variety of disciplines. This gives us the scope to take on and
-              successfully execute all manner of projects involving design,
-              sculpting, modelmaking, electronics, graphics, special effects,
-              mouldmaking, casting and fabrication in a wide range of materials.
+              Formed by Daniel Cole and Miguel Lopez. Together we have a diverse skill base and
+              knowledge of creative techniques and processes that we bring to our work, and over the
+              many years that we have worked in the film industry we have built up a close network
+              of skilled and passionate colleagues and collaborators who work over a variety of
+              disciplines. This gives us the scope to take on and successfully execute all manner of
+              projects involving design, sculpting, modelmaking, electronics, graphics, special
+              effects, mouldmaking, casting and fabrication in a wide range of materials.
             </p>
             <p>Contact us to discuss how we can make your project happen.</p>
           </section>
-          <iframe id="gallery" src="/gallery.html" frameborder="0"></iframe>
+          <iframe title="gallery" id="gallery" src="/gallery.html" frameBorder="0"></iframe>
           <div data-speed="0.2" className="jarallax">
             <img
               alt="miguel at work"
@@ -93,57 +91,35 @@ function App() {
                 </tr>
               </tbody>
             </table>
-            <form id="form" method="POST" name="contact" data-netlify-recaptcha="true" novalidate>
-              <input type="hidden" name="form-name" value="contact" />
-              <label for="email">Your email address: </label>
+            <form id="form" method="POST" name="contact">
+              <input type="hidden" name="form-name" value="contact" required="true" />
+              <label htmlFor="email">Your email address: </label>
               <input
                 id="email"
                 className="standard-input"
                 type="email"
                 name="email"
+                required="true"
               />
-              <span
-                id="email-error"
-                className="error"
-                aria-live="polite"
-              ></span>
-              <label for="subject">Subject: </label>
+              <span id="email-error" className="error" aria-live="polite"></span>
+              <label htmlFor="subject">Subject: </label>
               <input
                 id="subject"
                 className="standard-input"
                 name="subject"
                 type="text"
-                autocomplete="nope"
+                autoComplete="nope"
+                required="true"
               />
-              <span
-                id="subject-error"
-                className="error"
-                aria-live="polite"
-              ></span>
-              <label for="message">Message: </label>
+              <span id="subject-error" className="error" aria-live="polite"></span>
+              <label htmlFor="message">Message: </label>
               <textarea
                 id="message"
                 className="standard-input"
                 name="message"
+                required="true"
               ></textarea>
-              <span
-                id="message-error"
-                className="error"
-                aria-live="polite"
-              ></span>
-              {/* <div id="recaptcha-wrapper-wrapper">
-                <img
-                  alt="wait-for-recaptcha"
-                  id="wait-for-recaptcha"
-                  src={tailSpin}
-                />
-              </div> */}
-              <div data-netlify-recaptcha="true"></div>
-              <span
-                id="recaptcha-error"
-                className="error"
-                aria-live="polite"
-              ></span>
+              <span id="message-error" className="error" aria-live="polite"></span>
               <button id="form-button" type="submit">
                 Send Message
               </button>
@@ -207,4 +183,4 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'));
