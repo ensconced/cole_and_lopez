@@ -93,7 +93,7 @@ function App() {
                 </tr>
               </tbody>
             </table>
-            <form id="form" method="POST" name="contact" novalidate>
+            <form id="form" method="POST" name="contact" data-netlify-recaptcha="true" novalidate>
               <input type="hidden" name="form-name" value="contact" />
               <label for="email">Your email address: </label>
               <input
