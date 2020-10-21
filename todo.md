@@ -4,8 +4,8 @@ todo.md
 - [x] set up react
 - [x] think about how to do a staging site
 - [x] merge image gallery branch into staging
-- [ ] site looks like garbage on safari...
-- [ ] tidy up image gallery and push to staging - send email to dan to show
+- [x] site looks like garbage on safari...
+- [x] tidy up image gallery and push to staging - send email to dan to show
 - [ ] can i configure dev mode using netlify without needing domain stuff from dan...?
 - [ ] set up webpack dev mode
 - [ ] move production to netlify - might need access to godaddy or whatever domain provider dan used
