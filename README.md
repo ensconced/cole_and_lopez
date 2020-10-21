@@ -19,3 +19,5 @@ To test changes before they go into production, push up the `staging` branch. Th
 ## contact form
 
 The contact form is handled by netlify. Because the form is rendered by react, netlify requires there to be another form, with a matching set of inputs, hidden in index.html. see https://docs.netlify.com/forms/setup/#javascript-forms
+
+The form won't work when running in dev mode locally.

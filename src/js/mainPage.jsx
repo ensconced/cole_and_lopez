@@ -7,7 +7,24 @@ import danWorking from '../img/dan-working.jpg';
 import danWorkingSmall from '../img/dan-working-small.jpg';
 import miguelPainting from '../img/miguel-painting.jpg';
 import miguelPaintingSmall from '../img/miguel-painting-small.jpg';
-import tailSpin from '../img/tail-spin.svg';
+
+// TODO- this was for hiding the nav while form fields are focussed - can reinstate it if necessary
+
+// function showNav() {
+//   nav.style.position = 'fixed';
+//   nav.style.top = '0';
+// }
+// function hideNav() {
+//   nav.style.position = 'absolute';
+//   nav.style.top = '0';
+// }
+// function tempHideNav() {
+//   hideNav();
+//   debouncedShowNav();
+// }
+// const formFields = document.querySelector('');
+// const debouncedShowNav = debounce(showNav, 5000);
+// var nav = document.querySelector('nav');
 
 function App() {
   return (
@@ -92,14 +109,14 @@ function App() {
               </tbody>
             </table>
             <form id="form" method="POST" name="contact">
-              <input type="hidden" name="form-name" value="contact" required="true" />
+              <input type="hidden" name="form-name" value="contact" required={true} />
               <label htmlFor="email">Your email address: </label>
               <input
                 id="email"
                 className="standard-input"
                 type="email"
                 name="email"
-                required="true"
+                required={true}
               />
               <span id="email-error" className="error" aria-live="polite"></span>
               <label htmlFor="subject">Subject: </label>
@@ -109,7 +126,7 @@ function App() {
                 name="subject"
                 type="text"
                 autoComplete="nope"
-                required="true"
+                required={true}
               />
               <span id="subject-error" className="error" aria-live="polite"></span>
               <label htmlFor="message">Message: </label>
@@ -117,7 +134,7 @@ function App() {
                 id="message"
                 className="standard-input"
                 name="message"
-                required="true"
+                required={true}
               ></textarea>
               <span id="message-error" className="error" aria-live="polite"></span>
               <button id="form-button" type="submit">
