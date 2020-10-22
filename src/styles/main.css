@@ -264,93 +264,8 @@ form button:hover {
   cursor: pointer;
 }
 
-form button.pending {
-  position: relative;
-  padding-right: 2rem;
-  max-width: 220px;
-}
-
-form button,
-form #form-spinner {
+form button {
   margin: 0 auto;
-}
-
-form #form-spinner {
-  position: absolute;
-  right: 5px;
-  height: 1.4rem;
-}
-
-form #form-spinner .spinner-circle {
-  fill: red;
-}
-
-form #recaptcha-wrapper-wrapper {
-  min-height: 118px;
-  overflow: auto;
-  position: relative;
-  text-align: center;
-}
-
-form #recaptcha-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-form img#wait-for-recaptcha {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  display: inline;
-  top: 59px;
-  margin-top: -25px;
-  margin-left: -25px;
-  z-index: -1;
-}
-
-#flash-message {
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  line-height: 100px;
-  color: #222;
-  height: 100px;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-  opacity: 1;
-  -webkit-transition: opacity 0.5s ease;
-  -o-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
-}
-
-#flash-message p {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-#flash-message.hidden {
-  display: none;
-}
-
-#flash-message.success {
-  background-color: lightgreen;
-}
-
-#flash-message.failure {
-  background-color: #900;
-  color: white;
 }
 
 iframe#gallery {
@@ -377,12 +292,6 @@ iframe#gallery {
 @media screen and (max-width: 500px) {
   nav a {
     top: 23px;
-  }
-
-  form #recaptcha-wrapper {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9);
   }
 
   section {
