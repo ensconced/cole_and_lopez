@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom';
 
 import Footer from './footer';
 import logo from '../img/logo.svg';
-import danWorking from '../img/dan-working.jpg';
-import danWorkingSmall from '../img/dan-working-small.jpg';
-import miguelPainting from '../img/miguel-painting.jpg';
-import miguelPaintingSmall from '../img/miguel-painting-small.jpg';
+import danWorking from '../img/dan-working.jpg?sizes[]=600,sizes[]=4096';
+import miguelPainting from '../img/miguel-painting.jpg?sizes[]=600,sizes[]=4096';
 
 // TODO- this was for hiding the nav while form fields are focussed - can reinstate it if necessary
 
@@ -60,8 +58,8 @@ function App() {
             <img
               alt="dan at work"
               className="jarallax-img img-small lazyload"
-              src={danWorkingSmall}
-              data-src={danWorking}
+              src={`${danWorking}?size=600`}
+              data-src={`${danWorking}?size=4096`}
             />
             <h2>About Us</h2>
           </div>
@@ -88,8 +86,8 @@ function App() {
             <img
               alt="miguel at work"
               className="jarallax-img img-small lazyload"
-              src={miguelPaintingSmall}
-              data-src={miguelPainting}
+              src={`${miguelPainting}?size=600`}
+              data-src={`${miguelPainting}?size=4096`}
             />
             <h2>Contact</h2>
           </div>
