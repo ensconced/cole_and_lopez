@@ -6,9 +6,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/reset.css';
 import '../styles/gallery.css';
 import 'bootstrap/js/dist/carousel';
-import brushes from '../img/brushes.jpg?sizes[]=300,sizes[]=600,sizes[]=1024,sizes[]=2048';
-import miguel from '../img/miguel-painting.jpg?sizes[]=300,sizes[]=600,sizes[]=1024,sizes[]=2048';
-import dan from '../img/dan-working.jpg?sizes[]=300,sizes[]=600,sizes[]=1024,sizes[]=2048';
+import brushes from '../img/brushes.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
+import miguel from '../img/miguel-painting.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
+import dan from '../img/dan-working.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
 
 const images = [
   {
@@ -35,10 +35,10 @@ function Gallery() {
   const isMedium = useMediaQuery({ maxWidth: 1200 });
 
   function backgroundImageSize() {
-    if (isVerySmall) return '300';
-    if (isSmall) return '600';
-    if (isMedium) return '1024';
-    return '2048';
+    if (isVerySmall) return '600';
+    if (isSmall) return '1024';
+    if (isMedium) return '2048';
+    return '4096';
   }
 
   return (
