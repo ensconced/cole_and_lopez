@@ -1,34 +1,46 @@
-import React, { useRef } from "react";
-import ReactDOM from "react-dom";
-import Carousel from "react-bootstrap/Carousel";
-import "bootstrap/dist/css/bootstrap.css";
-import "../styles/reset.css";
-import "../styles/gallery.css";
-import "bootstrap/js/dist/carousel";
-import brushes from "../img/brushes.jpg";
-import miguel from "../img/miguel-painting.jpg";
-import dan from "../img/dan-working.jpg";
+import React, { useRef } from 'react';
+import ReactDOM from 'react-dom';
+import { useMediaQuery } from 'react-responsive';
+import Carousel from 'react-bootstrap/Carousel';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../styles/reset.css';
+import '../styles/gallery.css';
+import 'bootstrap/js/dist/carousel';
+import brushes from '../img/brushes.jpg?sizes[]=300,sizes[]=600,sizes[]=1024,sizes[]=2048';
+import miguel from '../img/miguel-painting.jpg?sizes[]=300,sizes[]=600,sizes[]=1024,sizes[]=2048';
+import dan from '../img/dan-working.jpg?sizes[]=300,sizes[]=600,sizes[]=1024,sizes[]=2048';
 
 const images = [
   {
     url: brushes,
-    title: "Brushes",
-    description: "some paint brushes",
+    title: 'Brushes',
+    description: 'some paint brushes',
   },
   {
     url: miguel,
-    title: "Miguel",
-    description: "this is miguel",
+    title: 'Miguel',
+    description: 'this is miguel',
   },
   {
     url: dan,
-    title: "Dan",
-    description: "this is dan",
+    title: 'Dan',
+    description: 'this is dan',
   },
 ];
 
 function Gallery() {
   const divContainer = useRef(null);
+  const isVerySmall = useMediaQuery({ maxWidth: 400 });
+  const isSmall = useMediaQuery({ maxWidth: 800 });
+  const isMedium = useMediaQuery({ maxWidth: 1200 });
+
+  function backgroundImageSize() {
+    if (isVerySmall) return '300';
+    if (isSmall) return '600';
+    if (isMedium) return '1024';
+    return '2048';
+  }
+
   return (
     <div ref={divContainer}>
       <Carousel>
@@ -37,13 +49,13 @@ function Gallery() {
             <Carousel.Item key={title}>
               <div
                 style={{
-                  height: "100vh",
-                  width: "100vw",
-                  backgroundColor: "#222",
-                  backgroundImage: `url(${url})`,
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "contain",
+                  height: '100vh',
+                  width: '100vw',
+                  backgroundColor: '#222',
+                  backgroundImage: `url(${url}?size=${backgroundImageSize()})`,
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'contain',
                 }}
               />
               <Carousel.Caption>
@@ -58,7 +70,7 @@ function Gallery() {
           https://fontawesome.com/license --> */}
       <a
         id="fullscreen"
-        onClick={(e) => {
+        onClick={e => {
           e.preventDefault();
           divContainer.current.requestFullscreen();
         }}
@@ -80,4 +92,4 @@ function Gallery() {
   );
 }
 
-ReactDOM.render(<Gallery />, document.getElementById("gallery-container"));
+ReactDOM.render(<Gallery />, document.getElementById('gallery-container'));

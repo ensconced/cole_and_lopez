@@ -83,7 +83,7 @@ function App() {
             </p>
             <p>Contact us to discuss how we can make your project happen.</p>
           </section>
-          {/* <iframe title="gallery" id="gallery" src="/gallery.html" frameBorder="0"></iframe> */}
+          <iframe title="gallery" id="gallery" src="/gallery.html" frameBorder="0"></iframe>
           <div data-speed="0.2" className="jarallax">
             <img
               alt="miguel at work"

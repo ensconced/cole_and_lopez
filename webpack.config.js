@@ -27,12 +27,18 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(png|jpe?g|gif|svg)$/i,
+          test: /\.(gif|svg)$/i,
           use: [
             {
               loader: 'file-loader',
             },
           ],
+        },
+        {
+          test: /\.(jpe?g|png|webp)$/i,
+          use: {
+            loader: 'responsive-loader',
+          },
         },
         {
           test: /\.css$/i,
