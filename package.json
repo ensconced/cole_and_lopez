@@ -46,6 +46,8 @@
     "eslint-plugin-flowtype": "^5.2.0",
     "file-loader": "^6.1.0",
     "jimp": "^0.16.1",
+    "raw-loader": "^4.0.2",
+    "react-shadow": "^18.4.2",
     "responsive-loader": "^2.2.0",
     "webpack-dev-server": "^3.11.0"
   }

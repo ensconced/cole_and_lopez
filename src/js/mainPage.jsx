@@ -1,28 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Gallery from './gallery';
 import Footer from './footer';
 import logo from '../img/logo.svg';
 import danWorking from '../img/dan-working.jpg?sizes[]=600,sizes[]=4096';
 import miguelPainting from '../img/miguel-painting.jpg?sizes[]=600,sizes[]=4096';
-
-// TODO- this was for hiding the nav while form fields are focussed - can reinstate it if necessary
-
-// function showNav() {
-//   nav.style.position = 'fixed';
-//   nav.style.top = '0';
-// }
-// function hideNav() {
-//   nav.style.position = 'absolute';
-//   nav.style.top = '0';
-// }
-// function tempHideNav() {
-//   hideNav();
-//   debouncedShowNav();
-// }
-// const formFields = document.querySelector('');
-// const debouncedShowNav = debounce(showNav, 5000);
-// var nav = document.querySelector('nav');
 
 function App() {
   return (
@@ -81,7 +63,7 @@ function App() {
             </p>
             <p>Contact us to discuss how we can make your project happen.</p>
           </section>
-          <iframe title="gallery" id="gallery" src="/gallery.html" frameBorder="0"></iframe>
+          <Gallery />
           <div data-speed="0.2" className="jarallax">
             <img
               alt="miguel at work"
