@@ -1,5 +1,5 @@
 /* eslint-disable import/no-webpack-loader-syntax */
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import root from 'react-shadow';
 import { useMediaQuery } from 'react-responsive';
 import Carousel from 'react-bootstrap/Carousel';
@@ -7,11 +7,17 @@ import resetStyles from '!!raw-loader!../styles/reset.css';
 import bootstrapStyles from '!!raw-loader!bootstrap/dist/css/bootstrap.css';
 import galleryStyles from '!!raw-loader!../styles/gallery.css';
 import 'bootstrap/js/dist/carousel';
-import brushes from '../img/brushes.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
-import miguel from '../img/miguel-painting.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
-import dan from '../img/dan-working.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
+import brushes from '../img/gallery/brushes.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
+import miguel from '../img/gallery/miguel-painting.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
+import dan from '../img/gallery/dan-working.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
+import cat1 from '../img/gallery/cat1.jpeg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
 
 const images = [
+  {
+    url: cat1,
+    title: 'Cat',
+    description: 'a cat',
+  },
   {
     url: brushes,
     title: 'Brushes',
@@ -29,8 +35,35 @@ const images = [
   },
 ];
 
-export default function Gallery() {
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowSize;
+}
+
+export default function Gallery({ height }) {
   const divContainer = useRef(null);
+  // window size for determining gallery height
+  const windowSize = useWindowSize();
+
+  // screen width for determining image sizes to use
   const isVerySmall = useMediaQuery({ maxWidth: 400 });
   const isSmall = useMediaQuery({ maxWidth: 800 });
   const isMedium = useMediaQuery({ maxWidth: 1200 });
@@ -51,8 +84,8 @@ export default function Gallery() {
               <Carousel.Item key={title}>
                 <div
                   style={{
-                    height: '100vh',
-                    width: '100vw',
+                    // should fill height of screen, after leaving 100px for the nav bar
+                    height: `${windowSize.height - 100}px`,
                     backgroundColor: '#222',
                     backgroundImage: `url(${url}?size=${backgroundImageSize()})`,
                     backgroundPosition: 'center',

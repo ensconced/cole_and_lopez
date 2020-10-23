@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Gallery from './gallery';
 import Footer from './footer';
 import logo from '../img/logo.svg';
-import danWorking from '../img/dan-working.jpg?sizes[]=600,sizes[]=4096';
-import miguelPainting from '../img/miguel-painting.jpg?sizes[]=600,sizes[]=4096';
+import danWorking from '../img/gallery/dan-working.jpg?sizes[]=600,sizes[]=4096';
+import miguelPainting from '../img/gallery/miguel-painting.jpg?sizes[]=600,sizes[]=4096';
 
 function App() {
   return (
@@ -63,7 +63,9 @@ function App() {
             </p>
             <p>Contact us to discuss how we can make your project happen.</p>
           </section>
-          <Gallery />
+          <div id="gallery-container" style={{ margin: '40px 0' }}>
+            <Gallery />
+          </div>
           <div data-speed="0.2" className="jarallax">
             <img
               alt="miguel at work"

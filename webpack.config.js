@@ -38,6 +38,7 @@ module.exports = (env, argv) => {
           test: /\.(jpe?g|png|webp)$/i,
           use: {
             loader: 'responsive-loader',
+            sizes: [600, 1024, 2048, 4096],
           },
         },
         {
