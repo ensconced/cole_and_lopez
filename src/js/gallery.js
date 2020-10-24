@@ -1,119 +1,74 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable import/no-webpack-loader-syntax */
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import root from 'react-shadow';
-import { useMediaQuery } from 'react-responsive';
 import Carousel from 'react-bootstrap/Carousel';
 import resetStyles from '!!raw-loader!../styles/reset.css';
-import bootstrapStyles from '!!raw-loader!bootstrap/dist/css/bootstrap.css';
+import bootstrapStyles from '!!raw-loader!bootstrap/dist/css/bootstrap.min.css';
 import galleryStyles from '!!raw-loader!../styles/gallery.css';
 import 'bootstrap/js/dist/carousel';
-import brushes from '../img/gallery/brushes.jpg';
-import miguel from '../img/gallery/miguel-painting.jpg';
-import dan from '../img/gallery/dan-working.jpg';
-import cat1 from '../img/gallery/cat1.jpeg';
+
+const context = require.context('../img/gallery');
+const galleryImages = context.keys().map(key => context(key));
 
 const images = [
   {
-    image: cat1,
-    title: 'Cat',
+    title: 'cat',
     description: 'a cat',
   },
   {
-    image: brushes,
     title: 'Brushes',
     description: 'some paint brushes',
   },
   {
-    image: miguel,
     title: 'Miguel',
     description: 'this is miguel',
   },
   {
-    image: dan,
     title: 'Dan',
     description: 'this is dan',
   },
-];
-
-function useWindowSize() {
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
-  });
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    handleResize();
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return windowSize;
-}
+].map((metaData, idx) => ({
+  ...metaData,
+  url: galleryImages[idx],
+}));
 
 export default function Gallery({ height }) {
   const divContainer = useRef(null);
-  // window size for determining gallery height
-  const windowSize = useWindowSize();
-
-  // screen width for determining image sizes to use
-  const isVerySmall = useMediaQuery({ maxWidth: 400 });
-  const isSmall = useMediaQuery({ maxWidth: 800 });
-  const isMedium = useMediaQuery({ maxWidth: 1200 });
-
-  function backgroundImageSize() {
-    if (isVerySmall) return '600';
-    if (isSmall) return '1024';
-    if (isMedium) return '2048';
-    return '4096';
-  }
-  const maxImageHeight = images.reduce((acc, { image }) => Math.max(image.height, acc), 0);
-
   return (
-    <root.div style={{ height: `${maxImageHeight}px` }}>
-      <div ref={divContainer} style={{ height: '100%', display: 'flex' }}>
+    <root.div>
+      <div ref={divContainer} style={{ height: 'calc(100vh - 100px)' }}>
         <Carousel>
-          {images.map(({ title, image, description }) => {
+          {images.map(({ title, url, description }) => {
             return (
               <Carousel.Item key={title}>
-                <div
+                <img
                   style={{
-                    height: '100%',
-                    border: '2px solid blue',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
+                    objectFit: 'contain',
+                    width: '100%',
+                    display: 'block',
+                    height: 'calc(100vh - 100px)',
                   }}
-                >
-                  <picture
+                  alt={`${title}—${description}`}
+                  src={url.src}
+                  srcSet={url.srcSet}
+                  // TODO - is it necessary to set the width and height here?
+                  width={url.width}
+                  height={url.height}
+                  sizes="(max-width: 600px) 600px, (max-width: 1024px) 1024px, (max-width: 2048px) 2048px, 4096px"
+                />
+                <Carousel.Caption>
+                  <div
                     style={{
-                      display: 'block',
-                      textAlign: 'center',
-                      flex: '0 0 auto',
+                      display: 'inline-block',
+                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                      padding: '10px 30px',
+                      borderRadius: '5px',
                     }}
                   >
-                    {/* <source srcSet={responsiveImageWebp.srcSet} type="image/webp" /> */}
-                    <img
-                      alt={`${title} — ${description}`}
-                      src={image.src}
-                      srcSet={image.srcSet}
-                      width={image.width}
-                      height={image.height}
-                      sizes="300px"
-                      loading="lazy"
-                    />
-                  </picture>
-                </div>
-                <Carousel.Caption>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                  </div>
                 </Carousel.Caption>
               </Carousel.Item>
             );

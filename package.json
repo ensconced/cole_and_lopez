@@ -19,7 +19,6 @@
     "eslint-plugin-jsx-a11y": "^6.3.0",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "4.0.0",
-    "jquery": "^3.5.1",
     "lodash": "^4.17.20",
     "prettier": "^2.1.2",
     "react": "^16.13.1",
@@ -46,9 +45,11 @@
     "eslint-plugin-flowtype": "^5.2.0",
     "file-loader": "^6.1.0",
     "jimp": "^0.16.1",
+    "jquery": "^3.5.1",
     "raw-loader": "^4.0.2",
     "react-shadow": "^18.4.2",
     "responsive-loader": "^2.2.0",
+    "webpack-bundle-analyzer": "^3.9.0",
     "webpack-dev-server": "^3.11.0"
   }
 }

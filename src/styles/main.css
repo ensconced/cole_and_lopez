@@ -83,8 +83,8 @@ nav span {
 }
 
 #previous-projects {
-  background-color: #eee;
-  color: #333;
+  background-color: #222;
+  color: #ddd;
   overflow: auto;
 }
 
@@ -272,9 +272,9 @@ form button {
   margin: 0 auto;
 }
 
-#gallery-container {
+/* #gallery-container {
   max-height: calc(100vh - var(--nav-height));
-}
+} */
 
 @media screen and (max-width: 650px) {
   nav a {

@@ -1,6 +1,5 @@
 # Todo
 
-- [ ] decide height of iframe based on gallery image sizes - to avoid big gap at top...- use react shadow dom?
 - [ ] reinstate fullscreen button
 - [ ] extract separate package for gallery?
 - [ ] add prepush yarn build?

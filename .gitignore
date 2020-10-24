@@ -1,4 +1,4 @@
-_site/
+built/
 .DS_Store
 node_modules/
 yarn.lock

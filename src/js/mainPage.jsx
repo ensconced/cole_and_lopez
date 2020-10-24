@@ -38,7 +38,6 @@ function App() {
               alt="dan at work"
               className="jarallax-img img-small lazyload"
               src={`${danWorking}?size=600`}
-              data-src={`${danWorking}?size=4096`}
             />
             <h2>About Us</h2>
           </div>
@@ -68,7 +67,6 @@ function App() {
               alt="miguel at work"
               className="jarallax-img img-small lazyload"
               src={`${miguelPainting}?size=600`}
-              data-src={`${miguelPainting}?size=4096`}
             />
             <h2>Contact</h2>
           </div>
