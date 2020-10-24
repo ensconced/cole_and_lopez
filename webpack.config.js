@@ -6,10 +6,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = (env, argv) => {
   const plugins = [
     new CopyPlugin({
-      patterns: [
-        { from: '**/*.(html|ico)', context: 'src' },
-        { from: 'admin', to: 'admin' },
-      ],
+      patterns: [{ from: '**/*.(html|ico)', context: 'src' }, { from: 'admin' }],
     }),
   ];
 
