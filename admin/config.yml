@@ -1,7 +1,6 @@
 backend:
   name: git-gateway
   branch: test-cms
-publish_mode: editorial_workflow
 media_folder: 'src/img'
 collections:
   - name: 'blog' # Used in routes, e.g., /admin/collections/blog
