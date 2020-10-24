@@ -8,6 +8,10 @@ import bootstrapStyles from '!!raw-loader!bootstrap/dist/css/bootstrap.min.css';
 import galleryStyles from '!!raw-loader!../styles/gallery.css';
 import 'bootstrap/js/dist/carousel';
 
+// To get all the images for the gallery, we require every json file from
+// the gallery-images directory. (These json files can be generated via the CMS).
+// Our custom gallery-json-loader converts the image paths from the JSON into
+// the actual image URL info (via responsive-image-loader).
 const context = require.context('../gallery-images');
 const galleryImages = context.keys().map(key => context(key));
 
