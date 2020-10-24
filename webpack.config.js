@@ -46,6 +46,7 @@ module.exports = (env, argv) => {
           use: {
             loader: 'responsive-loader',
             options: {
+              adapter: require('responsive-loader/sharp'),
               sizes: [600, 1024, 2048, 4096],
             },
           },
