@@ -7,29 +7,29 @@ import resetStyles from '!!raw-loader!../styles/reset.css';
 import bootstrapStyles from '!!raw-loader!bootstrap/dist/css/bootstrap.css';
 import galleryStyles from '!!raw-loader!../styles/gallery.css';
 import 'bootstrap/js/dist/carousel';
-import brushes from '../img/gallery/brushes.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
-import miguel from '../img/gallery/miguel-painting.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
-import dan from '../img/gallery/dan-working.jpg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
-import cat1 from '../img/gallery/cat1.jpeg?sizes[]=600,sizes[]=1024,sizes[]=2048,sizes[]=4096';
+import brushes from '../img/gallery/brushes.jpg';
+import miguel from '../img/gallery/miguel-painting.jpg';
+import dan from '../img/gallery/dan-working.jpg';
+import cat1 from '../img/gallery/cat1.jpeg';
 
 const images = [
   {
-    url: cat1,
+    image: cat1,
     title: 'Cat',
     description: 'a cat',
   },
   {
-    url: brushes,
+    image: brushes,
     title: 'Brushes',
     description: 'some paint brushes',
   },
   {
-    url: miguel,
+    image: miguel,
     title: 'Miguel',
     description: 'this is miguel',
   },
   {
-    url: dan,
+    image: dan,
     title: 'Dan',
     description: 'this is dan',
   },
@@ -74,25 +74,43 @@ export default function Gallery({ height }) {
     if (isMedium) return '2048';
     return '4096';
   }
+  const maxImageHeight = images.reduce((acc, { image }) => Math.max(image.height, acc), 0);
 
   return (
-    <root.div>
-      <div ref={divContainer}>
+    <root.div style={{ height: `${maxImageHeight}px` }}>
+      <div ref={divContainer} style={{ height: '100%', display: 'flex' }}>
         <Carousel>
-          {images.map(({ title, url, description }) => {
+          {images.map(({ title, image, description }) => {
             return (
               <Carousel.Item key={title}>
                 <div
                   style={{
-                    // should fill height of screen, after leaving 100px for the nav bar
-                    height: `${windowSize.height - 100}px`,
-                    backgroundColor: '#222',
-                    backgroundImage: `url(${url}?size=${backgroundImageSize()})`,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'contain',
+                    height: '100%',
+                    border: '2px solid blue',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
                   }}
-                />
+                >
+                  <picture
+                    style={{
+                      display: 'block',
+                      textAlign: 'center',
+                      flex: '0 0 auto',
+                    }}
+                  >
+                    {/* <source srcSet={responsiveImageWebp.srcSet} type="image/webp" /> */}
+                    <img
+                      alt={`${title} — ${description}`}
+                      src={image.src}
+                      srcSet={image.srcSet}
+                      width={image.width}
+                      height={image.height}
+                      sizes="300px"
+                      loading="lazy"
+                    />
+                  </picture>
+                </div>
                 <Carousel.Caption>
                   <h3>{title}</h3>
                   <p>{description}</p>
@@ -103,7 +121,7 @@ export default function Gallery({ height }) {
         </Carousel>
         {/* This icon is licensed under the Creative Commons Attribution 4.0 International license -->
           https://fontawesome.com/license --> */}
-        <a
+        {/* <a
           id="fullscreen"
           onClick={e => {
             e.preventDefault();
@@ -122,7 +140,7 @@ export default function Gallery({ height }) {
           >
             <path d="M0 180V56c0-13.3 10.7-24 24-24h124c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H64v84c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12zM288 44v40c0 6.6 5.4 12 12 12h84v84c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12V56c0-13.3-10.7-24-24-24H300c-6.6 0-12 5.4-12 12zm148 276h-40c-6.6 0-12 5.4-12 12v84h-84c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h124c13.3 0 24-10.7 24-24V332c0-6.6-5.4-12-12-12zM160 468v-40c0-6.6-5.4-12-12-12H64v-84c0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12v124c0 13.3 10.7 24 24 24h124c6.6 0 12-5.4 12-12z" />
           </svg>
-        </a>
+        </a> */}
       </div>
       <style type="text/css">{resetStyles}</style>
       <style type="text/css">{galleryStyles}</style>

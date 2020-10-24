@@ -3,15 +3,12 @@ import ReactDOM from 'react-dom';
 import Gallery from './gallery';
 import Footer from './footer';
 import logo from '../img/logo.svg';
-import danWorking from '../img/gallery/dan-working.jpg?sizes[]=600,sizes[]=4096';
-import miguelPainting from '../img/gallery/miguel-painting.jpg?sizes[]=600,sizes[]=4096';
+import danWorking from '../img/gallery/dan-working.jpg';
+import miguelPainting from '../img/gallery/miguel-painting.jpg';
 
 function App() {
   return (
     <>
-      <div id="flash-message" className="hidden">
-        <p></p>
-      </div>
       <nav>
         <img id="logo" alt="logo" src={logo} />
         <a
