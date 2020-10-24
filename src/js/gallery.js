@@ -8,30 +8,8 @@ import bootstrapStyles from '!!raw-loader!bootstrap/dist/css/bootstrap.min.css';
 import galleryStyles from '!!raw-loader!../styles/gallery.css';
 import 'bootstrap/js/dist/carousel';
 
-const context = require.context('../img/gallery');
+const context = require.context('../gallery-images');
 const galleryImages = context.keys().map(key => context(key));
-
-const images = [
-  {
-    title: 'cat',
-    description: 'a cat',
-  },
-  {
-    title: 'Brushes',
-    description: 'some paint brushes',
-  },
-  {
-    title: 'Miguel',
-    description: 'this is miguel',
-  },
-  {
-    title: 'Dan',
-    description: 'this is dan',
-  },
-].map((metaData, idx) => ({
-  ...metaData,
-  url: galleryImages[idx],
-}));
 
 export default function Gallery({ height }) {
   const divContainer = useRef(null);
@@ -39,7 +17,7 @@ export default function Gallery({ height }) {
     <root.div>
       <div ref={divContainer} style={{ height: 'calc(100vh - 100px)' }}>
         <Carousel>
-          {images.map(({ title, url, description }) => {
+          {galleryImages.map(({ title, image: url, description }) => {
             return (
               <Carousel.Item key={title}>
                 <img

@@ -43,6 +43,7 @@
     "eslint-plugin-flowtype": "^5.2.0",
     "file-loader": "^6.1.0",
     "jquery": "^3.5.1",
+    "json-loader": "^0.5.7",
     "raw-loader": "^4.0.2",
     "react-shadow": "^18.4.2",
     "responsive-loader": "^2.2.0",
