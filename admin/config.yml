@@ -26,3 +26,11 @@ collections:
           widget: 'string',
         }
       - { label: 'Section Body', name: 'section-body-markdown', widget: 'markdown' }
+    files:
+      - label: 'Productions'
+        name: 'productions'
+        file: 'src/cms/productions.yml'
+        fields:
+          - label: Productions
+            name: productions
+            widget: list
