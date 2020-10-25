@@ -26,6 +26,8 @@ collections:
           widget: 'string',
         }
       - { label: 'Section Body', name: 'section-body-markdown', widget: 'markdown' }
+  - name: 'productions'
+    label: 'Productions'
     files:
       - label: 'Productions'
         name: 'productions'
