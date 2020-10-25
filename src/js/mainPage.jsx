@@ -6,6 +6,19 @@ import logo from '../img/logo.svg';
 import danWorking from '../../cms-media/dan-working.jpg';
 import miguelPainting from '../../cms-media/miguel-painting.jpg';
 
+const context = require.context('../cms/main-sections');
+const sectionsFromCMS = context.keys().map(key => context(key));
+
+function Sections() {
+  return (
+    <div>
+      {sectionsFromCMS.map(section => {
+        return React.createElement(section['section-body-markdown']);
+      })}
+    </div>
+  );
+}
+
 function App() {
   return (
     <>
@@ -31,6 +44,7 @@ function App() {
         </a>
         <span>Design and fabrication for creative industries.</span>
       </nav>
+      <Sections />
       <div id="main-wrapper">
         <div id="main">
           <div data-speed="0.2" className="jarallax">

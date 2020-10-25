@@ -13,7 +13,7 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image' }
   - name: 'main-sections'
-    label: 'Main Sections'
+    label: 'Main Section'
     folder: 'src/cms/main-sections'
     create: true
     extension: json
@@ -25,4 +25,4 @@ collections:
           name: 'title-background-image-alt-text',
           widget: 'string',
         }
-      - { label: 'Section Body', name: 'section-body', widget: 'markdown' }
+      - { label: 'Section Body', name: 'section-body-markdown', widget: 'markdown' }

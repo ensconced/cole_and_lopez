@@ -34,12 +34,12 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.json$/,
-          // prevent normal json loader from running...
+          test: /src\/cms.*\.json$/,
+          // need to this to prevent normal json loader from running...
           type: 'javascript/auto',
           use: [
             {
-              loader: path.resolve(__dirname, './gallery-json-loader.js'),
+              loader: path.resolve(__dirname, './cms-loader.js'),
             },
           ],
         },
@@ -68,6 +68,7 @@ module.exports = (env, argv) => {
             {
               loader: 'css-loader',
               options: {
+                // TODO - what is this? is it necessary?
                 importLoaders: 1,
                 modules: false,
               },
