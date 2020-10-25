@@ -1,6 +1,0 @@
-{
-  "title-background-image": "/cms-media/miguel-painting.jpg",
-  "title": "Main Section Test 1",
-  "title-background-image-alt-text": "miguel painting",
-  "section-body-markdown": "# this is some markdown\n\n**we'll need to turn this into HTML...or into jsx somehow...**\n\n[this is a link](https://www.netlifycms.org/docs/nextjs/)"
-}
