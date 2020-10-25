@@ -10,13 +10,23 @@ const context = require.context('../cms/main-sections');
 const sectionsFromCMS = context.keys().map(key => context(key));
 
 function Sections() {
-  return (
-    <div>
-      {sectionsFromCMS.map(section => {
-        return React.createElement(section['section-body-markdown']);
-      })}
-    </div>
-  );
+  return sectionsFromCMS.map(section => {
+    return (
+      <React.Fragment key={section.title}>
+        <div data-speed="0.2" className="jarallax">
+          <img
+            alt={section['title-background-image-alt-text']}
+            className="jarallax-img img-small lazyload"
+            src={section['title-background-image'].src}
+          />
+          <h2>{section.title}</h2>
+        </div>
+        <section className="about-us">
+          {React.createElement(section['section-body-markdown'])}
+        </section>
+      </React.Fragment>
+    );
+  });
 }
 
 function App() {
@@ -44,35 +54,9 @@ function App() {
         </a>
         <span>Design and fabrication for creative industries.</span>
       </nav>
-      <Sections />
       <div id="main-wrapper">
         <div id="main">
-          <div data-speed="0.2" className="jarallax">
-            <img
-              alt="dan at work"
-              className="jarallax-img img-small lazyload"
-              src={`${danWorking}?size=600`}
-            />
-            <h2>About Us</h2>
-          </div>
-          <section className="about-us">
-            <p>Design and fabrication for creative industries.</p>
-            <p>
-              We are a company that makes original and unique objects for film, TV and theatre
-              productions, as well as fine artists and designers. All with passion and to a high
-              technical standard.
-            </p>
-            <p>
-              Formed by Daniel Cole and Miguel Lopez. Together we have a diverse skill base and
-              knowledge of creative techniques and processes that we bring to our work, and over the
-              many years that we have worked in the film industry we have built up a close network
-              of skilled and passionate colleagues and collaborators who work over a variety of
-              disciplines. This gives us the scope to take on and successfully execute all manner of
-              projects involving design, sculpting, modelmaking, electronics, graphics, special
-              effects, mouldmaking, casting and fabrication in a wide range of materials.
-            </p>
-            <p>Contact us to discuss how we can make your project happen.</p>
-          </section>
+          <Sections />
           <div id="gallery-container" style={{ margin: '40px 0' }}>
             <Gallery />
           </div>

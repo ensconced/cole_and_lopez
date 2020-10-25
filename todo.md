@@ -1,6 +1,7 @@
 # Todo
 
 - [ ] incorporate text sections into CMS
+- [ ] how does ordering of the collections work in netlify CMS?
 - [ ] reinstate fullscreen button
 - [ ] issue with cms login redirects?
 - [ ] make separate branch with instagram stuff - use proper instagram basic display api to get thumbnails etc and display nicely with react?
