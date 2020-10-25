@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Gallery from './gallery';
 import Footer from './footer';
 import logo from '../img/logo.svg';
-import danWorking from '../img/gallery/dan-working.jpg';
-import miguelPainting from '../img/gallery/miguel-painting.jpg';
+import danWorking from '../../cms-media/dan-working.jpg';
+import miguelPainting from '../../cms-media/miguel-painting.jpg';
 
 function App() {
   return (

@@ -37,13 +37,9 @@ module.exports = (env, argv) => {
           test: /\.json$/,
           // prevent normal json loader from running...
           type: 'javascript/auto',
-
           use: [
             {
               loader: path.resolve(__dirname, './gallery-json-loader.js'),
-            },
-            {
-              loader: 'json-loader',
             },
           ],
         },

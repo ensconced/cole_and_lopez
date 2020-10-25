@@ -1,5 +1,5 @@
 {
   "title": "test image",
-  "description": "here is some smoke",
-  "image": "/src/img/cat1.jpg"
+  "description": "here is a \"nice\" cat",
+  "image": "/cms-media/cat1.jpg"
 }
