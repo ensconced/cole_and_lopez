@@ -5,6 +5,7 @@ import Footer from './footer';
 import logo from '../img/logo.svg';
 import miguelPainting from '../../cms-media/miguel-painting.jpg';
 import { productions } from '../cms/productions.json';
+import { address } from '../cms/address.json';
 
 const context = require.context('../cms/main-sections');
 const sectionsFromCMS = context.keys().map(key => context(key));
@@ -74,11 +75,12 @@ function App() {
                 <tr>
                   <th>Address:</th>
                   <td>
-                    <p>Cole and Lopez Ltd</p>
-                    <p>Unit 17 Gemini Project</p>
-                    <p>Landmann Way</p>
-                    <p>London</p>
-                    <p>SE14 5RL</p>
+                    {address
+                      .split('\n')
+                      .filter(line => line.length > 0)
+                      .map(line => (
+                        <p key={line}>{line}</p>
+                      ))}
                   </td>
                 </tr>
               </tbody>

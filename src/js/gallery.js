@@ -17,9 +17,10 @@ const galleryImages = context.keys().map(key => context(key));
 
 export default function Gallery({ height }) {
   const divContainer = useRef(null);
+  if (galleryImages.length === 0) return null;
   return (
     <root.div>
-      <div ref={divContainer} style={{ height: 'calc(100vh - 100px)' }}>
+      <div ref={divContainer} style={{ height: 'calc(100vh - 100px)', position: 'relative' }}>
         <Carousel>
           {galleryImages.map(({ title, image: url, description }) => {
             return (
