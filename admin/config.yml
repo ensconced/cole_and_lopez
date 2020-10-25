@@ -31,7 +31,7 @@ collections:
     files:
       - label: 'Productions'
         name: 'productions'
-        file: 'src/cms/productions.txt'
+        file: 'src/cms/productions.json'
         fields:
           - label: Productions
             name: productions
