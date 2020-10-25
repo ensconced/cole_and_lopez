@@ -36,3 +36,13 @@ collections:
           - label: Productions
             name: productions
             widget: text
+  - name: 'contact-address'
+    label: 'Address'
+    files:
+      - label: 'Address'
+        name: 'address'
+        file: 'src/cms/address.json'
+        fields:
+          - label: Address
+            name: address
+            widget: text
