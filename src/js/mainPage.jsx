@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Gallery from './gallery';
 import Footer from './footer';
 import logo from '../img/logo.svg';
-import miguelPainting from '../../cms-media/miguel-painting.jpg';
+import miguelPainting from '../img/miguel-painting.jpg';
 import { productions } from '../cms/productions.json';
 import { address } from '../cms/address.json';
 
