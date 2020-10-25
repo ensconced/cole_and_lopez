@@ -12,3 +12,17 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image' }
+  - name: 'main-sections'
+    label: 'Main Sections'
+    folder: 'src/cms/main-sections'
+    create: true
+    extension: json
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Title Background Image', name: 'title-background-image', widget: 'image' }
+      - {
+          label: 'Title Background Image Alt Text',
+          name: 'title-background-image-alt-text',
+          widget: 'string',
+        }
+      - { label: 'Section Body', name: 'section-body', widget: 'markdown' }
