@@ -31,8 +31,8 @@ collections:
     files:
       - label: 'Productions'
         name: 'productions'
-        file: 'src/cms/productions.yml'
+        file: 'src/cms/productions.txt'
         fields:
           - label: Productions
             name: productions
-            widget: list
+            widget: text
