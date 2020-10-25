@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Gallery from './gallery';
 import Footer from './footer';
 import logo from '../img/logo.svg';
-import danWorking from '../../cms-media/dan-working.jpg';
 import miguelPainting from '../../cms-media/miguel-painting.jpg';
+import { productions } from '../cms/productions.json';
 
 const context = require.context('../cms/main-sections');
 const sectionsFromCMS = context.keys().map(key => context(key));
@@ -128,44 +128,9 @@ function App() {
             data-min-item-width="150"
           >
             <ul>
-              <li>Game of Thrones</li>
-              <li>Vikings</li>
-              <li>Peaky Blinders</li>
-              <li>Black Mirror</li>
-              <li>Humans</li>
-              <li>Taboo</li>
-              <li>Eastenders</li>
-              <li>Kiss Me First</li>
-              <li>Killing Eve</li>
-              <li>The Bodyguard</li>
-              <li>Trust</li>
-              <li>Casualty</li>
-              <li>Fortitude</li>
-              <li>Britannia</li>
-              <li>Vanity Fair</li>
-              <li>Unforgotten</li>
-              <li>Holby City</li>
-              <li>Bounty Hunters</li>
-              <li>The Halcyon</li>
-              <li>Will</li>
-              <li>Ordeal by Innocence</li>
-              <li>The Crown</li>
-              <li>Overlord</li>
-              <li>Jurassic World</li>
-              <li>Wonder Woman</li>
-              <li>Spectre</li>
-              <li>Skyfall</li>
-              <li>Justice League</li>
-              <li>Ready Player One</li>
-              <li>Hunter Killer</li>
-              <li>Mission Impossible: Fallout</li>
-              <li>Bohemian Rhapsody</li>
-              <li>Mary Poppins</li>
-              <li>The Nutcracker and the Four Realms</li>
-              <li>Kingsman</li>
-              <li>Beauty and the Beast</li>
-              <li>Transformers: The Last Knight</li>
-              <li>Fantastic Beasts and Where to Find Them</li>
+              {productions.split('\n').map(production => (
+                <li key={production}>{production}</li>
+              ))}
             </ul>
           </div>
         </div>

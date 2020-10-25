@@ -30,7 +30,7 @@ module.exports = function (jsonSrc) {
     } else if (key.endsWith('markdown')) {
       result += `"${key}": ${markupComponentString(val)},\n`;
     } else {
-      result += `"${key}": "${escapeChar(val, '"')}",\n`;
+      result += `"${key}": \`${escapeChar(val, '`')}\`,\n`;
     }
   });
   return `${result}\n};\n`;
