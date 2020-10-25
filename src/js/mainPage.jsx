@@ -128,9 +128,12 @@ function App() {
             data-min-item-width="150"
           >
             <ul>
-              {productions.split('\n').map(production => (
-                <li key={production}>{production}</li>
-              ))}
+              {productions
+                .split('\n')
+                .filter(production => production.length > 0)
+                .map(production => (
+                  <li key={production}>{production}</li>
+                ))}
             </ul>
           </div>
         </div>
