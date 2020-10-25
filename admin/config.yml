@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: test-cms
+  branch: staging
 media_folder: 'cms-media'
 collections:
   - name: 'gallery-image' # Used in routes, e.g., /admin/collections/blog
