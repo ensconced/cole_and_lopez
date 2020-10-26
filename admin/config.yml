@@ -4,6 +4,8 @@ backend:
 media_folder: 'cms-media'
 collections:
   - name: 'gallery-image' # Used in routes, e.g., /admin/collections/blog
+    editor:
+      preview: false
     label: 'Gallery Image' # Used in the UI
     folder: 'src/cms/gallery-images' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
@@ -13,6 +15,8 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image' }
   - name: 'main-sections'
+    editor:
+      preview: false
     label: 'Main Section'
     folder: 'src/cms/main-sections'
     create: true
@@ -27,6 +31,8 @@ collections:
         }
       - { label: 'Section Body', name: 'section-body-markdown', widget: 'markdown' }
   - name: 'productions'
+    editor:
+      preview: false
     label: 'Productions'
     files:
       - label: 'Productions'
@@ -37,6 +43,8 @@ collections:
             name: productions
             widget: text
   - name: 'contact-address'
+    editor:
+      preview: false
     label: 'Address'
     files:
       - label: 'Address'
