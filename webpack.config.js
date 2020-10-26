@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
   if (argv.mode === 'production') {
     plugins.unshift(new CleanWebpackPlugin());
   } else {
-    plugins.push(new BundleAnalyzerPlugin());
+    // plugins.push(new BundleAnalyzerPlugin());
   }
 
   return {

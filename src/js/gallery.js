@@ -12,7 +12,7 @@ import 'bootstrap/js/dist/carousel';
 // the gallery-images directory. (These json files can be generated via the CMS).
 // Our custom gallery-json-loader converts the image paths from the JSON into
 // the actual image URL info (via responsive-image-loader).
-const context = require.context('../cms/gallery-images');
+const context = require.context('../cms', true, /\/gallery-images/);
 const galleryImages = context.keys().map(key => context(key));
 
 export default function Gallery({ height }) {
