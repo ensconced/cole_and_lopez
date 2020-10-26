@@ -1,7 +1,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env, argv) => {
   const plugins = [
@@ -52,7 +52,7 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.(jpe?g|png|webp)$/i,
+          test: /\.(jpe?g|png|webp|tiff)$/i,
           use: {
             loader: 'responsive-loader',
             options: {
