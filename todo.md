@@ -1,7 +1,7 @@
 # Todo
 
+- [ ] instafeed - set up using https://www.instant-tokens.com/home ? (apparently there are issues with the heroku option)
 - [ ] issue with cms login redirects?
-- [ ] make separate branch with instagram stuff - use proper instagram basic display api to get thumbnails etc and display nicely with react?
 - [ ] reinstate fullscreen button
 - [ ] how does ordering of the collections work in netlify CMS?
 - [ ] do we need to reinstate the code which hides the nav while form fields are focussed?
