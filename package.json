@@ -19,6 +19,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.0",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "4.0.0",
+    "instafeed.js": "^2.0.0-rc2",
     "lodash": "^4.17.20",
     "prettier": "^2.1.2",
     "react": "^16.13.1",
