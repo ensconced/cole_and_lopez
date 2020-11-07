@@ -1,7 +1,6 @@
 /* globals jarallax */
 const throttle = require('lodash/throttle');
 const isMobile = require('./isMobile');
-const Instafeed = require('instafeed.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   function setNavOpacity(ev) {
@@ -19,8 +18,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!isMobile()) {
     jarallax(document.querySelectorAll('.jarallax'), { speed: 0.2 });
   }
-  var feed = new Instafeed({
-    accessToken: 'your-token',
-  });
-  feed.run();
 });

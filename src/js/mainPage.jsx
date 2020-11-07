@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Gallery from './gallery';
+import InstaGrid from './instagram';
 import Footer from './footer';
 import logo from '../img/logo.svg';
 import miguelPainting from '../img/miguel-painting.jpg';
@@ -120,6 +121,7 @@ function App() {
             </form>
           </section>
         </div>
+        <InstaGrid />
         <div id="previous-projects">
           <h3>Productions we have been involved with</h3>
           <div

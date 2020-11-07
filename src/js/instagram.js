@@ -1,34 +1,36 @@
-import "./instagram-hydrate";
+import React, { useEffect, useState } from 'react';
+import './instagram-hydrate';
+import '../styles/insta-grid.css';
 
-const clientToken = "b3ce92708d41bce35307e293b3804606";
-const appID = "937463676763777";
-const accessToken = `${appID}|${clientToken}`;
+const Instafeed = require('instafeed.js');
 
-async function main() {
-  const response = await fetch(
-    "https://www.instagram.com/graphql/query/?query_hash=42323d64886122307be10013ad2dcc44&variables={%22id%22:%228251130873%22,%22first%22:4}"
+export default function InstaGrid() {
+  const [photos, setPhotos] = useState([]);
+  useEffect(() => {
+    const fetchedPhotos = [];
+    fetch(
+      'https://ig.instant-tokens.com/users/266200f4-332b-409b-af26-4394cde12d12/instagram/17841408246201392/token?userSecret=kapxse7u5kudii3teo1kd',
+    )
+      .then(res => res.json())
+      .then(({ Token }) => {
+        var feed = new Instafeed({
+          accessToken: Token,
+          limit: 100,
+          debug: true,
+          render: data => {
+            fetchedPhotos.push(data);
+            return null;
+          },
+          after: () => setPhotos(fetchedPhotos),
+        });
+        feed.run();
+      });
+  }, []);
+  return (
+    <section id="photos" style={{ maxWidth: '80%' }}>
+      {photos.map(({ image, id }) => (
+        <img alt="" src={image} key={id} />
+      ))}
+    </section>
   );
-  const data = await response.json();
-
-  const postIds = data.data.user.edge_owner_to_timeline_media.edges.map(
-    (edge) => edge.node.shortcode
-  );
-  const posts = await Promise.all(
-    postIds.map(async (postId) => {
-      const url = `https://graph.facebook.com/v8.0/instagram_oembed?url=https://www.instagram.com/p/${postId}/&access_token=${accessToken}`;
-      const response = await fetch(url);
-      const { html } = await response.json();
-      return html;
-    })
-  );
-  posts.forEach((post) => {
-    const el = document.createElement("div");
-    el.style.width = "326px";
-    el.style.border = "5px solid blue";
-    el.innerHTML = post;
-    document.body.appendChild(el);
-  });
-  instgrm.Embeds.process();
 }
-
-main();
