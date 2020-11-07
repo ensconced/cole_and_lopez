@@ -16,8 +16,8 @@ export default function InstaGrid() {
         var feed = new Instafeed({
           accessToken: Token,
           limit: 100,
-          debug: true,
           render: data => {
+            console.log(data);
             fetchedPhotos.push(data);
             return null;
           },
@@ -28,8 +28,17 @@ export default function InstaGrid() {
   }, []);
   return (
     <section id="photos" style={{ maxWidth: '80%' }}>
-      {photos.map(({ image, id }) => (
-        <img alt="" src={image} key={id} />
+      {photos.map(({ image, id, model, caption }) => (
+        <a
+          href={model.permalink}
+          title={caption
+            .split('\n')
+            .filter(line => line !== '.')
+            .join('\n')}
+          key={id}
+        >
+          <img src={image} />
+        </a>
       ))}
     </section>
   );

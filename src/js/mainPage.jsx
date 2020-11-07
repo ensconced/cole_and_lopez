@@ -121,6 +121,7 @@ function App() {
             </form>
           </section>
         </div>
+        <h2>Our Work</h2>
         <InstaGrid />
         <div id="previous-projects">
           <h3>Productions we have been involved with</h3>
