@@ -54,11 +54,6 @@ collections:
           - label: Address
             name: address
             widget: text
-  - name: 'email-address'
-    editor:
-      preview: false
-    label: 'Email address'
-    files:
       - label: 'Email address'
         name: 'Email address'
         file: 'src/cms/email-address.json'
