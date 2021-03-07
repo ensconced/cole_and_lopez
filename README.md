@@ -6,8 +6,6 @@ This site is hosted at www.coleandlopez.com using netlify.
 
 Pushing to master will re-deploy the live site!
 
-To deploy on netlify, run `yarn build`, then commit all the changes and push.
-
 ## development
 
 run `yarn start:dev` to run a local server
