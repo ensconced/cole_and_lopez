@@ -15,7 +15,7 @@ export default function InstaGrid() {
       .then(({ Token }) => {
         var feed = new Instafeed({
           accessToken: Token,
-          limit: 100,
+          limit: 15,
           render: data => {
             console.log(data);
             fetchedPhotos.push(data);
