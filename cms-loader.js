@@ -29,6 +29,14 @@ module.exports = function (jsonSrc) {
       result += `"${key}": require("${escapeChar(fullPath, '"')}"),\n`;
     } else if (key.endsWith('markdown')) {
       result += `"${key}": ${markupComponentString(val)},\n`;
+    } else if (key === 'emailAddress') {
+      // turn email address string into array of codepoints,
+      // to make it less legible to spam bots
+      const codePoints = [];
+      for (const codePoint of val) {
+        codePoints.push(codePoint.codePointAt(0));
+      }
+      result += `"${key}": ${JSON.stringify(codePoints)},\n`;
     } else {
       result += `"${key}": \`${escapeChar(val, '`')}\`,\n`;
     }

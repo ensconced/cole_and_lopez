@@ -8,6 +8,14 @@ import { productions } from '../cms/productions.json';
 import { address } from '../cms/address.json';
 import { emailAddress } from '../cms/email-address.json';
 
+// The email address is encoded as an array of codepoints, as an attempt to
+// hide it from spam bots. The email address won't be present in the initial served
+// HTML page, or in the JS bundle. If the bots are smart enough to run the JS, they
+// will find the email address rendered into the page by react, however...
+function decodeEmailAddress() {
+  return emailAddress.map(codePoint => String.fromCodePoint(codePoint)).join('');
+}
+
 const context = require.context('../cms/main-sections');
 const sectionsFromCMS = context.keys().map(key => context(key));
 
@@ -32,7 +40,7 @@ function Sections() {
 }
 
 function App() {
-  const addressLines = [emailAddress, '', ...address.split('\n')].map(line => (
+  const addressLines = [decodeEmailAddress(emailAddress), '', ...address.split('\n')].map(line => (
     // replace empty lines with nbsp
     <p key={line}>{line || '\u00A0'}</p>
   ));
