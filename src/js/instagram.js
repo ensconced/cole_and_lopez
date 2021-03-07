@@ -17,7 +17,6 @@ export default function InstaGrid() {
           accessToken: Token,
           limit: 21,
           render: data => {
-            console.log(data);
             fetchedPhotos.push(data);
             return null;
           },
@@ -41,7 +40,7 @@ export default function InstaGrid() {
             .join('\n')}
           key={id}
         >
-          <img src={image} />
+          <img src={image} alt={caption.slice(0, 20)} />
         </a>
       ))}
     </section>
