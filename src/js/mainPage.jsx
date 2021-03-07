@@ -6,6 +6,7 @@ import logo from '../img/logo.svg';
 import miguelPainting from '../img/miguel-painting.jpg';
 import { productions } from '../cms/productions.json';
 import { address } from '../cms/address.json';
+import { emailAddress } from '../cms/email-address.json';
 
 const context = require.context('../cms/main-sections');
 const sectionsFromCMS = context.keys().map(key => context(key));
@@ -31,6 +32,11 @@ function Sections() {
 }
 
 function App() {
+  const addressLines = [emailAddress, '', ...address.split('\n')].map(line => (
+    // replace empty lines with nbsp
+    <p key={line}>{line || '\u00A0'}</p>
+  ));
+
   return (
     <>
       <nav>
@@ -74,12 +80,7 @@ function App() {
               <tbody>
                 <tr>
                   <th>Address:</th>
-                  <td>
-                    {address.split('\n').map(line => (
-                      // replace empty lines with nbsp
-                      <p key={line}>{line || '\u00A0'}</p>
-                    ))}
-                  </td>
+                  <td>{addressLines}</td>
                 </tr>
               </tbody>
             </table>
