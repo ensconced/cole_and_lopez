@@ -15,7 +15,7 @@ export default function InstaGrid() {
       .then(({ Token }) => {
         var feed = new Instafeed({
           accessToken: Token,
-          limit: 15,
+          limit: 21,
           render: data => {
             console.log(data);
             fetchedPhotos.push(data);
@@ -27,9 +27,13 @@ export default function InstaGrid() {
       });
   }, []);
   return (
-    <section id="photos" style={{ maxWidth: '80%' }}>
+    <section
+      id="photos"
+      style={{ maxWidth: '80%', display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
+    >
       {photos.map(({ image, id, model, caption }) => (
         <a
+          style={{ flex: '0 0 200px' }}
           href={model.permalink}
           title={caption
             .split('\n')
