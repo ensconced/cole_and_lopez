@@ -24,7 +24,7 @@ export default function Gallery({ height }) {
         <Carousel>
           {galleryImages.map(({ title, image: url, description }) => {
             return (
-              <Carousel.Item key={title}>
+              <Carousel.Item key={title + url}>
                 <img
                   style={{
                     objectFit: 'contain',

@@ -75,12 +75,10 @@ function App() {
                 <tr>
                   <th>Address:</th>
                   <td>
-                    {address
-                      .split('\n')
-                      .filter(line => line.length > 0)
-                      .map(line => (
-                        <p key={line}>{line}</p>
-                      ))}
+                    {address.split('\n').map(line => (
+                      // replace empty lines with nbsp
+                      <p key={line}>{line || '\u00A0'}</p>
+                    ))}
                   </td>
                 </tr>
               </tbody>
